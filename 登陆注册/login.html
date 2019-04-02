@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
+        #bodyContainer{
+            height: 100vh;
+        }
+        .container{
+            background-color: #9a9afb;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .buttonContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .buttonItem{
+            margin-right: 50px;
+            display: flex;
+        }
+    </style>
+</head>
+<body id="bodyContainer">
+<div class="container">
+    <form action="">
+        <P>用户名称:<input type="text"   placeholder="用户名称"/></P>
+        <P> 密码输入:<input type="password" placeholder="用户密码"/></P>
+        <div class="buttonContainer">
+            <span class="buttonItem"><input type="hidden" value="隐藏"></span>
+            <span> <input type="submit" value="登陆"/><input type="reset"/></span>
+        </div>
+    </form>
+</div>
+</body>
+</html>

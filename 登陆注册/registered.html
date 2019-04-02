@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .ch{
+            background-color: #9a9afb;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size:16px;
+            font-family:"楷体";
+            color: blue;
+        }
+        .tr{
+            color: black;
+            font-size:25px;
+            font-family:"楷体";
+        }
+        .ts{
+            color: white;
+        // font-size:50px;
+            font-family:"宋体";
+        }
+    </style>
+</head>
+<body>
+
+<div class="ch">
+    <form action="ht">
+        <div class="tr">
+            <p>个人信息注册界面</p>
+        </div>
+
+        <P>用户名称:<input type="text"   placeholder="用户名称"/></P>
+        <P>密码输入:<input type="password" placeholder="用户密码"/></P>
+        <p>重新确认:<input type="password" placeholder=""/></p>
+        <p>性 别：  <input type="radio" name="sex" value=men"/>男
+            <input type="radio" name="sex" value=women"/>女</p>
+        <p>性 格：  <input type="checkbox" name="character" value="open"/>开朗
+            <input type="checkbox" name="character"  value="sun"/>阳光
+            <input type="checkbox" name="character" value="optimism"/>乐观</p>
+        <p>爱 好：  <input type="checkbox" name="like" value="read"/>看书
+            <input type="checkbox" name="like"  value="write"/>写字
+            <input type="checkbox" name="like" value="movies"/>看电影</p>
+
+        <div class="ts">
+            <p><input type="submit" value="注册"/>
+                <input type="reset" value="重置"/></p>
+        </div>
+    </form>
+</div>
+</body>
+</html>
