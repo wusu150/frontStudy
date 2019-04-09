@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link id="Y1" rel="stylesheet" type="text/css" href="1.css"/>
+    <script>
+      function div1() {
+        var oL= document.getElementById(`Y1`);
+        console.log('dayin 1.css');
+        oL.href = `1.css`;
+      }
+
+      function div2() {
+        var ol = document.getElementById(`Y1`);
+        console.log('dayin 2.css');
+        ol.href = `2.css`;
+      }
+
+      function cal() {
+        var valueA = document.getElementById(`valueA`);
+        var valueB = document.getElementById(`valueB`);
+        var resultElement = document.getElementById(`result`);
+
+        var result = Number(valueA.value) + Number(valueB.value);
+        resultElement.value = result;
+      }
+
+
+
+
+      setInterval(function countfunc() {
+        var count = document.getElementById(`count`);
+        count.value = Number(count.value) + 1;
+      }, 1000);
+    </script>
+</head>
+<input id="valueA" type="text"> + <input id="valueB" type="text"> = <input id="result" type="text">
+<br />
+<input type="button" value="计算" onclick="cal()"/>
+<br />
+<input id="count" type="text">
+<input type="button" value="皮肤1" onclick="div1()"/>
+<input type="button" value="皮肤2" onclick="div2()"/>
+</body>
+</html>
