@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{width: 200px;height: 100px;background: aqua}
+    </style>
+    <script>
+        function setColor(color)
+        {
+          var oDiv=document.getElementById(`div1`);
+          oDiv.style.background=color;
+        }
+      /*function toGreen()
+        {
+          var oDiv=document.getElementById(`div1`);
+          oDiv.style.background=`green`
+        }
+        function toYellow()
+        {
+          var oDiv=document.getElementById(`div1`);
+          oDiv.style.background=`yellow`
+        }
+        function toBlack()
+        {
+          var oDiv=document.getElementById(`div1`);
+          oDiv.style.background=`black`
+        }*/
+    </script>
+</head>
+<body>
+<input type="button"value="变绿"onclick="setColor(`green`);"/>
+<input type="button"value="变黄"onclick="setColor(`yellow`);"/>
+<input type="button"value="变黑"onclick=//"toBlack()"//>
+
+<div id="div1"></div>
+</body>
+</html>
