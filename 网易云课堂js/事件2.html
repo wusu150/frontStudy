@@ -3,8 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script>
+      window.onload = function () {
+        var oBtn = document.getElementById(`btn1`);
+        //function abc()//   匿名函数
+        // {alert(`蒹葭苍苍`);}//
+        //oBtn.onclick=abc//
+
+        oBtn.onclick = function () {
+          alert(`蒹葭苍苍`);
+        };
+      };
+    </script>
 </head>
 <body>
-
+<input id="btn1" type="button" value="按钮"/>
 </body>
 </html>
