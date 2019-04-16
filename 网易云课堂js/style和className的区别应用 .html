@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1 {
+            width: 200px;
+            height: 200px;
+          /*background: #9a9afb;*/
+           border: 1px solid #9a9afb;
+        }
+        .box{background: black;}
+    </style>
+    <script>
+      function toBlack() {
+        var oDiv = document.getElementById(`div1`);
+        oDiv.className = `box`;
+      }
+      function toGreen() {
+        var oDiv = document.getElementById(`div1`);
+        oDiv.style.background = `green`;
+      }
+    </script>
+</head>
+<body>
+<input type="button" value="变黑" onclick="toBlack();"/>
+<input type="button" value="变绿" onclick="toGreen();"/>
+<div id="div1"></div>
+</body>
+</html>
