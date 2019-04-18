@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{ margin:0; padding:0 }
+        #tab
+        {
+            width: 360px;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #b0cc7c;
+            margin: 50px auto;
+        }
+
+        .ul {
+            display: flex;
+            flex: 1;
+            width: 360px;
+            height: 500px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            background-color: #b6b690;
+        }
+        .text
+        {
+            clear:both;
+            width: 340px;
+            height: 100px;
+            background-color:#FFF;
+            margin: 10px 10px;
+        }
+
+        li
+        {
+            background-color:#000;
+            list-style:none;
+            width: 100px;
+            height: 100px;
+            margin: 10px 10px;
+            font: bold 28px "Times New Roman", Times, serif;
+            color: #FFF;
+            text-align:center;
+        }
+        .active {
+            background: #ffef64;
+            color: #9a9afb;
+            font: bold 28px "Times New Roman", Times, serif;
+            width: 100px;
+            height: 100px;
+            margin: 5px 5px;
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+            }
+    </style>
+
+    <script>
+        window.onload=function () {
+          var arr=[
+            '过年了,大家商量去哪儿玩吧',
+            '每天都美美哒',
+            '和你一起去游山玩水',
+            '去看电影并且抓娃娃',
+            '去爬山',
+            '去动物看丹顶鹤',
+            '买好多好多好吃的',
+            '去看日落',
+            '夜幕降临的时候看北极星',
+            '聊天，玩游戏',
+            '滑雪',
+            '马路上溜达',
+            '朗诵',
+          ];
+          var oDiv = document.getElementById('tab');
+          var aLi = oDiv.getElementsByTagName('li');
+          var oTxt = oDiv.getElementsByTagName('div')[0];
+
+          for (var i = 0; i<aLi.length; i++) {
+            aLi[i].index=i;
+            aLi[i].onmouseover = function () {
+              for (var i = 0; i < aLi.length; i++) {
+                aLi[i].className = '';
+                this.className = 'active';
+                /*oTxt.in nerHTML = '<h2>'+(this.index+1)+'月活动</h2>
+                <p>过年了，大家商量去哪儿玩吧</p>';                       字符串相加*/
+                oTxt.innerHTML = '<h2>'+(this.index+1)+'月活动</h2><p>'+arr[this.index]+'</p>';
+            };
+          }
+        }}
+    </script>
+</head>
+<body>
+<div id="tab" class="calendar">
+    <ul class="ul">
+        <li CLASS="active"><h2>1</h2><p>JAN</p></li>
+        <li><h2>2</h2><p>FEP</p></li>
+        <li><h2>3</h2><p>MAR</p></li>
+        <li><h2>4</h2><p>APR</p></li>
+        <li><h2>5</h2><p>MAY</p></li>
+        <li><h2>6</h2><p>JUN</p></li>
+        <li><h2>7</h2><p>JUL</p></li>
+        <li><h2>8</h2><p>AUG</p></li>
+        <li><h2>9</h2><p>SEP</p></li>
+        <li><h2>10</h2><p>OCT</p></li>
+        <li><h2>11</h2><p>NOV</p></li>
+        <li><h2>12</h2><p>DEC</p></li>
+    </ul>
+    <div class="text">
+       <h2>1月活动</h2>
+        <p>过年了，大家商量去哪儿玩吧</p>
+    </div>
+</div>
+</body>
+</body>
+</body>
+</html>

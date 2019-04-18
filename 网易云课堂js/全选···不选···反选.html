@@ -12,49 +12,43 @@
           var oBtn4=document.getElementById(`btn4`);
           var oDiv=document.getElementById(`div1`);
           var aCh=oDiv.getElementsByTagName(`input`);
-
-
-          oBtn1.onclick=function ()
-          {
+          oBtn1.onclick = function () {
             //aCh[0].checked=true;
-            for (var i=0;i<aCh.length;i++)
-            {
+            for (var i = 0; i < aCh.length; i++) {
               console.log(i);
-              aCh[i].checked=true;
-            };
+              aCh[i].checked = true;
+            }
+            ;
           };
-          oBtn2.onclick=function ()
-          {
+          oBtn2.onclick = function () {
             //aCh[0].checked=true;
-            for (var i=0;i<aCh.length;i++)
-            {
+            for (var i = 0; i < aCh.length; i++) {
               console.log(i);
-              aCh[i].checked=false;
-            };
+              aCh[i].checked = false;
+            }
+            ;
           };
-          oBtn3.onclick=function ()
-          {
+          oBtn3.onclick = function () {
             //aCh[0].checked=true;
-            for (var i=0;i<aCh.length;i++)
-            {
+            for (var i = 0; i < aCh.length; i++) {
               console.log(i);
-              aCh[i].checked=false;
+              aCh[i].checked = false;
               if (i % 2 === 0) {
-                aCh[i].checked=true;
+                aCh[i].checked = true;
               }
-            };
+            }
+            ;
           };
-          oBtn4.onclick=function ()
-          {
+          oBtn4.onclick = function () {
             //aCh[0].checked=true;
-            for (var i=0;i<aCh.length;i++)
-            {
+            for (var i = 0; i < aCh.length; i++) {
               console.log(i);
-              aCh[i].checked=false;
+              aCh[i].checked = false;
               if (i % 2 !== 0) {
-                aCh[i].checked=true;
+                aCh[i].checked = true;
               }
-            };
+            }
+            ;
           };
         }
     </script>

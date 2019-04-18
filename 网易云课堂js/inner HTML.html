@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{width: 150px;height: 150px;border: 1px solid black;}
+    </style>
+    <script>
+     window.onload=function ()
+     {
+       var oTxt=document.getElementById(`txt1`);
+       var oBtn=document.getElementById(`btn1`);
+       var oDiv=document.getElementById(`div1`);
+       oBtn.onclick=function ()
+       {
+        // oDiv.innerHTML=oTxt.value;   填写文字
+           alert(oDiv.innerHTML);        弹窗显示
+       };
+     }
+
+    </script>
+</head>
+<body>
+<input id="txt1"type="text"/>
+<input id="btn1"type="button" value="设置文字"/>
+<div id="div1">可不会比较好
+</div>
+</body>
+</html>
