@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <style>
+    .loadpagediv {
+      display:none;
+      position:absolute;
+      width:25%;
+      height:10%;
+      background-color: #cdeaff;
+      border:10px solid #fff5dd;
+      color: #000000;
+    }
+  </style>
+  <script>
+    var id = setTimeout('loadPage()',100);
+    function loadPage() {
+      // 取得文档载入状态，如果载入完成，则readystate='complete'
+      // 根据这个可以定时去获取文档载入状态，来实现页面载入等待效果
+      var readystate = document.readyState.toLowerCase();
+      if (readystate === 'complete')
+      {
+        clearTimeout(id);
+        document.getElementById('loadpagediv').style.display =  "none";
+      }
+      else {
+        document.getElementById('loadpagediv').style.display =  "block";
+        id = setTimeout('loadPage()',100);
+      }
+    }
+  </script>
+</head>
+
+<body>
+<div id="loadpagediv" class="loadpagediv">
+  正在加载页面。。。
+</div>
+</body>
+<iframe
+        src="https://www.baidu.com"
+        style="width: 80%;height: 500px;"
+>
+
+</iframe>
+</html>
