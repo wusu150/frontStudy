@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function ()
+        {
+          var oBtn1=document.getElementById(`btn1`);
+          var oBtn2=document.getElementById(`btn2`);
+          var oBtn3=document.getElementById(`btn3`);
+          var oBtn4=document.getElementById(`btn4`);
+          var oDiv=document.getElementById(`div1`);
+          var aCh=oDiv.getElementsByTagName(`input`);
+          oBtn1.onclick = function () {
+            //aCh[0].checked=true;
+            for (var i = 0; i < aCh.length; i++) {
+              console.log(i);
+              aCh[i].checked = true;
+            }
+            ;
+          };
+          oBtn2.onclick = function () {
+            //aCh[0].checked=true;
+            for (var i = 0; i < aCh.length; i++) {
+              console.log(i);
+              aCh[i].checked = false;
+            }
+            ;
+          };
+          oBtn3.onclick = function () {
+            //aCh[0].checked=true;
+            for (var i = 0; i < aCh.length; i++) {
+              console.log(i);
+              aCh[i].checked = false;
+              if (i % 2 === 0) {
+                aCh[i].checked = true;
+              }
+            }
+            ;
+          };
+          oBtn4.onclick = function () {
+            //aCh[0].checked=true;
+            for (var i = 0; i < aCh.length; i++) {
+              console.log(i);
+              aCh[i].checked = false;
+              if (i % 2 !== 0) {
+                aCh[i].checked = true;
+              }
+            }
+            ;
+          };
+        }
+    </script>
+</head>
+<body>
+<input id="btn1" type="button" value="全选"/>
+<input id="btn2" type="button" value="反选"/>
+<input id="btn3" type="button" value="全选偶数"/>
+<input id="btn4" type="button" value="全选奇数"/>
+
+<div id="div1">
+        <input type="checkbox"/>
+    <br><input type="checkbox"/>
+    <br><input type="checkbox"/>
+    <br><input type="checkbox"/>
+    <br><input type="checkbox"/>
+    <br><input type="checkbox"/>
+    <br><input type="checkbox"/>
+    <br><input type="checkbox"/>
+    <br><input type="checkbox"/>
+    <br><input type="checkbox"/>
+    <br><input type="checkbox"/>
+    <br><input type="checkbox"/>
+</div>
+</body>
+</html>
