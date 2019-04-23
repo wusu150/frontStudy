@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        *{ margin:0; padding:0 }
+        * { margin:0; padding:0 }
         #tab
         {
             width: 360px;
             height: 600px;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column; //布局方向为竖直
+            justify-content: center; //
+            align-items: center; //
             background-color: #b0cc7c;
             margin: 50px auto;
         }
@@ -51,8 +51,8 @@
             background: #ffef64;
             color: #9a9afb;
             font: bold 28px "Times New Roman", Times, serif;
-            width: 100px;
-            height: 100px;
+             /*width: 100px; */
+            /*height: 100px;*/
             margin: 5px 5px;
             border: 1px solid #ffffff;
             border-radius: 5px;
@@ -61,7 +61,7 @@
 
     <script>
         window.onload=function () {
-          var arr=[
+          var arr=[ // 定义一个数组
             '过年了,大家商量去哪儿玩吧',
             '每天都美美哒',
             '和你一起去游山玩水',
@@ -76,6 +76,7 @@
             '马路上溜达',
             '朗诵',
           ];
+
           var oDiv = document.getElementById('tab');
           var aLi = oDiv.getElementsByTagName('li');
           var oTxt = oDiv.getElementsByTagName('div')[0];
@@ -103,7 +104,7 @@
         <li><h2>4</h2><p>APR</p></li>
         <li><h2>5</h2><p>MAY</p></li>
         <li><h2>6</h2><p>JUN</p></li>
-        <li><h2>7</h2><p>JUL</p></li>
+        <li><h2>7</h2><p>JUL</p></li>      
         <li><h2>8</h2><p>AUG</p></li>
         <li><h2>9</h2><p>SEP</p></li>
         <li><h2>10</h2><p>OCT</p></li>
@@ -115,7 +116,5 @@
         <p>过年了，大家商量去哪儿玩吧</p>
     </div>
 </div>
-</body>
-</body>
 </body>
 </html>
