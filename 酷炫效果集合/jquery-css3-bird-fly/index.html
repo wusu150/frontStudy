@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery/CSS3实现小鸟飞翔动画DEMO演示</title>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+
+<style type="text/css">
+*{
+	margin: 0;
+	padding: 0;
+}
+.box{
+	width: 564px;
+	height: 170px;
+}
+.box div{
+	width: 141px;
+	height: 85px;
+	float: left;
+	margin-top: 150px;
+	margin-left: 50px;
+	
+	background:url(images/bird1.png);/* 用于Firefox 可无视 */
+	
+	-webkit-animation: myFrist 1s linear infinite;
+	-moz-animation: myFrist 1s linear infinite;
+	-o-animation: myFrist 1s linear infinite;
+	animation: myFrist 1s linear infinite;
+}
+@-webkit-keyframes myFrist
+{
+	0%    {background:url(images/bird1.png);background-size: 100% 100%}
+	12.5% {background:url(images/bird2.png);background-size: 100% 100%}
+	25%   {background:url(images/bird3.png);background-size: 100% 100%}
+	37.5% {background:url(images/bird4.png);background-size: 100% 100%}
+	50%   {background:url(images/bird5.png);background-size: 100% 100%}
+	65.7% {background:url(images/bird6.png);background-size: 100% 100%}
+	75%   {background:url(images/bird7.png);background-size: 100% 100%}
+	87.5% {background:url(images/bird8.png);background-size: 100% 100%}
+	100%  {background:url(images/bird1.png);background-size: 100% 100%}
+}
+@-moz-keyframes myFrist
+{
+	0%    {background:url(images/bird1.png);background-size: 100% 100%}
+	12.5% {background:url(images/bird2.png);background-size: 100% 100%}
+	25%   {background:url(images/bird3.png);background-size: 100% 100%}
+	37.5% {background:url(images/bird4.png);background-size: 100% 100%}
+	50%   {background:url(images/bird5.png);background-size: 100% 100%}
+	65.7% {background:url(images/bird6.png);background-size: 100% 100%}
+	75%   {background:url(images/bird7.png);background-size: 100% 100%}
+	87.5% {background:url(images/bird8.png);background-size: 100% 100%}
+	100%  {background:url(images/bird1.png);background-size: 100% 100%}
+}
+@-o-keyframes myFrist
+{
+	0%    {background:url(images/bird1.png);background-size: 100% 100%}
+	12.5% {background:url(images/bird2.png);background-size: 100% 100%}
+	25%   {background:url(images/bird3.png);background-size: 100% 100%}
+	37.5% {background:url(images/bird4.png);background-size: 100% 100%}
+	50%   {background:url(images/bird5.png);background-size: 100% 100%}
+	65.7% {background:url(images/bird6.png);background-size: 100% 100%}
+	75%   {background:url(images/bird7.png);background-size: 100% 100%}
+	87.5% {background:url(images/bird8.png);background-size: 100% 100%}
+	100%  {background:url(images/bird1.png);background-size: 100% 100%}
+}
+@keyframes myFrist
+{
+	0%    {background:url(images/bird1.png);background-size: 100% 100%}
+	12.5% {background:url(images/bird2.png);background-size: 100% 100%}
+	25%   {background:url(images/bird3.png);background-size: 100% 100%}
+	37.5% {background:url(images/bird4.png);background-size: 100% 100%}
+	50%   {background:url(images/bird5.png);background-size: 100% 100%}
+	65.7% {background:url(images/bird6.png);background-size: 100% 100%}
+	75%   {background:url(images/bird7.png);background-size: 100% 100%}
+	87.5% {background:url(images/bird8.png);background-size: 100% 100%}
+	100%  {background:url(images/bird1.png);background-size: 100% 100%}
+}
+</style>
+
+</head>
+<body>
+
+<div class="box">
+	<div></div>
+</div>
+
+<script type="text/javascript">
+var timer = setInterval(function(){
+	$(".box > div").animate({
+		'marginLeft': 1000,
+	},{queue:true, duration:5000,complete:function a(){
+		 $(".box > div").css('transform','rotateY(180deg)');
+	}}).animate({
+		'marginLeft': 50,
+	},5000,function(){
+		 $(".box > div").css('transform','rotateY(0deg)');
+	});
+},1000);
+</script>
+
+<div style="text-align:center;clear:both;padding-top:30px">
+<script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
+<script src="/follow.js" type="text/javascript"></script>
+</div>
+</body>
+</html>
