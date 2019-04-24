@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+      var json={a:12,b:5,c:'abc'};
+      var arr=[12,5,7]
+        //alert(json.a)   []方括号可以代替所有的 .  显示为字符串
+      // alert(arr[0]);       显示为数字
+
+      //   alert(json.length);     弹窗undefined，没有隐藏数值
+      // alert(arr.length);     数字个数显示
+
+       //数组循环:
+                  // for (var i=0;i<arr.length;i++) {
+                  //   alert('第'+i+'个东西:'+arr[i]);}
+
+        //数组循环：（json循环）
+        //               for(var i in arr)
+        //               {
+        //                 alert('第'+i+'个东西:'+arr[i]);}
+
+
+      //json循环
+      for(var i in json)
+      {
+        alert('第'+i+'个东西:'+json[i]);
+      }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

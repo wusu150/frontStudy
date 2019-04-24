@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: mediumvioletred;
+            position: absolute;
+            left: 0;
+            top: 50px;
+        }
+    </style>
+    <script>
+        setInterval(function () {
+          var oDiv=document.getElementById('div1');
+          console.log(oDiv.offsetLeft);
+          if (oDiv.offsetLeft > 500) {
+            oDiv.style.left = 0;
+          } else {
+            oDiv.style.left = oDiv.offsetLeft+10+'px';
+          }
+        },10);
+    </script>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+</html>
