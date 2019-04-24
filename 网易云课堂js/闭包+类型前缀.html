@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    类型前缀只是给变量取名时用，给函数取名不需要加类型前缀
+
+    <script>
+
+      //子函数可以使用父函数的局部变量
+
+      function aaa() {          //父函数
+         var a=12
+        alert('aaa');
+      function bbb() {
+        alert(a);
+      }
+        bbb();                 //子函数
+      }
+      aaa();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
