@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+      window.t1 = performance.now()
+    </script>
+    <script>
+      window.test = function () {
+        // test code
+      }
+    </script>
+    <script>
+      window.t2 = performance.now();
+      test();
+      window.t3 = performance.now();
+
+      console.log("编译耗时：" + (t2 - t1));
+      console.log("执行耗时：" + (t3 - t2));
+    </script>
+</head>
+<body>
+
+</body>
+</html>
