@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="mountNode"></div>
+</body>
+<script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.g6-3.0.0/build/g6.js"></script>
+<script src="https://gw.alipayobjects.com/os/lib/antv/hierarchy/0.4.0/build/hierarchy.js"></script>
+
+<script>
+  // const data = {
+  //   nodes: [{
+  //     id: 'node1',
+  //     x: 100,
+  //     y: 200
+  //   },{
+  //     id: 'node2',
+  //     x: 300,
+  //     y: 200
+  //   }],
+  //   edges: [{
+  //     source: 'node1',
+  //     target: 'node2'
+  //   }]
+  // };
+
+  const data = {
+    isRoot: true,
+    id: "Root",
+    style: {
+      fill: "red"
+    },
+    children: [
+      {
+        id: "SubTreeNode1",
+        raw: {},
+        children: [
+          {
+            id: "SubTreeNode1.1"
+          },
+          {
+            id: "SubTreeNode1.2",
+            children: [
+              {
+                id: "SubTreeNode1.2.1"
+              },
+              {
+                id: "SubTreeNode1.2.2"
+              },
+              {
+                id: "SubTreeNode1.2.3"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        id: "SubTreeNode2",
+        children: [
+          {
+            id: "SubTreeNode2.1"
+          }
+        ]
+      },
+      {
+        id: "SubTreeNode3",
+        children: [
+          {
+            id: "SubTreeNode3.1"
+          },
+          {
+            id: "SubTreeNode3.2"
+          },
+          {
+            id: "SubTreeNode3.3"
+          }
+        ]
+      },
+      {
+        id: "SubTreeNode4"
+      },
+      {
+        id: "SubTreeNode5"
+      },
+      {
+        id: "SubTreeNode6"
+      },
+      {
+        id: "SubTreeNode7"
+      },
+      {
+        id: "SubTreeNode8"
+      },
+      {
+        id: "SubTreeNode9"
+      },
+      {
+        id: "SubTreeNode10"
+      },
+      {
+        id: "SubTreeNode11"
+      }
+    ]
+  };
+
+  const graph = new G6.TreeGraph({
+    container: 'mountNode',
+    width: 900,
+    height: 700,
+    pixelRatio: 2,
+    defaultNode: { size: 16 },
+    nodeStyle: {
+      default: {
+        fill: "#40a9ff",
+        stroke: "#096dd9"
+      }
+    },
+    edgeStyle: {
+      default: {
+        stroke: "#A3B1BF"
+      }
+    },
+    // modes: { // 支持的 behavior
+    //   default: ['click-select', 'drag-canvas', 'drag-node',],
+    //   drag: ['drag-node','drag-canvas']
+    // },
+    modes: {
+      default: [{
+        type: 'collapse-expand',                    // 定义收缩/展开行为
+        onChange(item, collapsed) {
+          const data = item.get('model').data;
+          data.collapsed = collapsed;
+          return true;                              // 重新layout
+        },
+        animate: {
+          duration: 300,                           // 动画时长300ms
+          callback() {                             // 动画结束回调
+            console.log('animate finished');
+          }
+        }
+      }, 'drag-canvas', 'zoom-canvas', 'drag-node', 'click-select',]
+    },
+    layout: (data) => {
+      const result = Hierarchy.dendrogram(data, {
+        direction: 'LR', // H / V / LR / RL / TB / BT
+        nodeSep: 50,
+        rankSep: 100
+      });
+
+      console.log(data);
+
+      return result;
+    },
+  });
+
+
+  graph.data(data);
+  graph.render();
+  graph.getNodes().forEach(node => {
+    node.get("model").anchorPoints = [[0, 0.5], [1, 0.5]];
+  });
+  graph.getEdges().forEach(edge => {
+    // edge.get("model").shape = "cubic-horizontal";
+    edge.get("model").shape = "cubic-horizontal";
+  });
+  graph.refresh();
+  graph.fitView();
+
+  // graph.on('click', ev => {
+  //   const shape = ev.target;
+  //   const item = ev.item;
+  //   if (item) {
+  //
+  //     const type = item.getType();
+  //     console.log(shape, item);
+  //   }
+  // });
+  //
+  // graph.on('node:click', ev => {
+  //   const shape = ev.target;
+  //   const node = ev.item;
+  //   console.log(shape, node);
+  // });
+</script>
+</html>
