@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{float: left;margin: 10px;}
+        #div1{width: 50px;height: 50px;background: #9a9afb;}
+        #div2{width: 200px;height: 200px;background:#9b9b9b; display: none}
+    </style>
+    <script>
+        window.onload=function () {
+          var oDiv1=document.getElementById('div1');
+          var oDiv2=document.getElementById('div2');
+          oDiv1.onmouseover=function () {
+            oDiv2.style.display='block';
+          };
+          oDiv1.onmouseout=function () {
+            oDiv2.style.display='none';
+          }
+
+        }
+    </script>
+</head>
+<body>
+<div id="div1"></div>
+<div id="div2"></div>
+</body>
+</html>

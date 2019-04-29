@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function () {
+          var oBtn1=document.getElementById('btn1');
+          var oBtn2=document.getElementById('btn2');
+          var timer=null;
+
+
+       oBtn1.onclick=function () {
+         timer=setInterval(function () {
+           alert('a');
+         },1000);
+       };
+       oBtn2.onclick=function () {
+         clearInterval(timer);
+       }
+        }
+    </script>
+</head>
+<body>
+<input id="btn1"type="button"value="开启"/>
+<input id="btn2"type="button"value="关闭"/>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>求和</title>
+    <script>
+      window.onload = function () {
+        var oTxt1 = document.getElementById('txt1');
+        var oTxt2 = document.getElementById('txt2');
+        var oBtn = document.getElementById('btn1');
+        var oBtn2 = document.getElementById('btn2');
+        var oBtn3 = document.getElementById('btn3');
+        var oBtn4 = document.getElementById('btn4');
+        var oBtn5 = document.getElementById('btn5');
+        oBtn.onclick = function () {
+          var n1 = parseInt(oTxt1.value);
+          var n2 = parseInt(oTxt2.value);
+
+          console.log(n1, n2);
+          console.log(isNaN(n1), isNaN(n2));
+          // is not a number
+          if (isNaN(n1)) {
+            alert('输入第一有误');
+          } else if (isNaN(n2)) {
+            alert('输入第二有误');
+          } else {
+            alert(n1 + n2);
+          }
+        };
+
+        oBtn2.onclick = function () {
+          var n1 = parseInt(oTxt1.value);
+          var n2 = parseInt(oTxt2.value);
+
+          console.log(n1, n2);
+          console.log(isNaN(n1), isNaN(n2));
+          // is not a number
+          if (isNaN(n1)) {
+            alert('输入第一有误');
+          } else if (isNaN(n2)) {
+            alert('输入第二有误');
+          } else {
+            alert(n1 * n2);
+          }
+        };
+        oBtn3.onclick = function () {
+          var n1 = parseInt(oTxt1.value);
+          var n2 = parseInt(oTxt2.value);
+
+          console.log(n1, n2);
+          console.log(isNaN(n1), isNaN(n2));
+          // is not a number
+          if (isNaN(n1)) {
+            alert('输入第一有误');
+          } else if (isNaN(n2)) {
+            alert('输入第二有误');
+          } else {
+            alert(n1 - n2);
+          }
+        };
+        oBtn4.onclick = function () {
+          var n1 = parseInt(oTxt1.value);
+          var n2 = parseInt(oTxt2.value);
+
+          console.log(n1, n2);
+          console.log(isNaN(n1), isNaN(n2));
+          // is not a number
+          if (isNaN(n1)) {
+            alert('输入第一有误');
+          } else if (isNaN(n2)) {
+            alert('输入第二有误');
+          } else {
+            alert(n1 / n2);
+          }
+        };
+        oBtn5.onclick = function () {
+          var n1 = parseInt(oTxt1.value);
+          var n2 = parseInt(oTxt2.value);
+
+          console.log(n1, n2);
+          console.log(isNaN(n1), isNaN(n2));
+          // is not a number
+          if (isNaN(n1)) {
+            alert('输入第一有误');
+          } else if (isNaN(n2)) {
+            alert('输入第二有误');
+          } else {
+            alert(n1 % n2);
+          }
+        };
+      }
+    </script>
+</head>
+<body>
+<input id="txt1" type="text"/>
+<input id="txt2" type="text"/>
+<input id="btn1" type="button" value="求和"/>
+<input id="btn2" type="button" value="求积"/>
+<input id="btn3" type="button" value="求差"/>
+<input id="btn4" type="button" value="求除数"/>
+<input id="btn5" type="button" value="求yushu"/>
+</body>
+</html>
