@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>看看谁最幸运,快来点击吧.</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .main {
+            margin-top: 100px;
+        }
+        .wrap {
+            width: 400px;
+            height: 160px;
+            margin: 0 auto;
+            line-height: 160px;
+            text-align: center;
+            font-size: 40px;
+            background: #ccc;
+            color: #000;
+        }
+        .btn-group {
+            width: 500px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .btn {
+            display: inline-block;
+            width: 196px;
+            height: 40px;
+            line-height: 40px;
+            border: 1px solid #ccc;
+            margin: 20px auto 0;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="main">
+    <div id="box" class="wrap">
+        会是谁呢
+    </div>
+    <div class="btn-group">
+        <div id="start1" class="btn">开始</div>
+        <div id="start2" class="btn">暂停</div>
+    </div>
+</div>
+<script>
+  var group = ['王杰', '继康', '继康', '小强', '菁华', '方菲', '星星', '继康', '星星', '星星', '星星', '成龙', '李连杰'];
+  var len = group.length;
+  var box = document.getElementById('box');
+  var startbtn = document.getElementById('start1');
+  var endbtn = document.getElementById('start2');
+  var time = null;
+  startbtn.onclick = function() {
+    clearInterval(time);
+    time = setInterval(function() {
+      var who = parseInt(Math.random() * len, 10);
+      box.innerHTML = group[who];
+    }, 10);
+  }
+  endbtn.onclick = function() {
+    clearInterval(time);
+  }
+</script>
+</body>
+</html>
