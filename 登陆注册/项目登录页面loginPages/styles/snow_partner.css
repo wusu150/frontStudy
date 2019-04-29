@@ -1,0 +1,17 @@
+body {
+  background: url("../images/skin_snow_partner.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+}
+
+.container {
+  margin: 18% 2% 20% 60%;
+  width: 500px;
+  height: 100%;
+  color: #8B4D61;
+}
+.container input,textarea {
+  background-color: #D6EAEA;
+  border: 1px solid;
+}
