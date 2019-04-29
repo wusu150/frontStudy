@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title></title>
+    <style type="text/css">
+        html,body {
+            overflow:hidden;
+            margin:0px;
+            width:100%;
+            height:100%;
+        }
+
+        .virtual_body {
+            width:100%;
+            height:100%;
+            overflow-y:scroll;
+            overflow-x:auto;
+        }
+
+        .fixed_div {
+            position:absolute;
+            z-index:2008;
+            bottom:20px;
+            right:40px;
+            width:800px;
+            height:400px;
+            border:1px solid red;
+            background:#e5e5e5;
+        }
+    </style>
+</head>
+
+<body>
+<div class="fixed_div">I am still here!</div>
+<div class="virtual_body">
+    <div style="height:1800px;">
+        I am content !
+    </div>
+</div>
+</body>
+</html>
