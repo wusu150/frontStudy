@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>前端播放m3u8格式视频</title>
+    <!--<link rel="stylesheet" href="./video.css">-->
+    <!--<script src="./video.js"></script>-->
+    <!--<script src="./videojs-contrib-hls.js"></script>-->
+    <link href="./min/video-js.min.css" rel="stylesheet">
+    <script src="./min/video.min.js"></script>
+    <script src="./min/videojs-contrib-hls.min.js"></script>
+    <style>
+        #sourcelist {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="sourcelist" ></div>
+<video id="myVideo" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="600" height="500" data-setup='{}'>
+    <source
+        id="source"
+        type="application/x-mpegURL"
+    >
+</video>
+<div id="title"></div>
+<video id="videoorigin" src="http://ivi.bupt.edu.cn/hls/cctv5hd.m3u8" autoplay controls/>
+<!--src="http://ivi.bupt.edu.cn/hls/cctv5hd.m3u8"-->
+<!--src="http://ivi.bupt.edu.cn/hls/cctv1hd.m3u8"-->
+<!--src="http://ivi.bupt.edu.cn/hls/cctv5hd.m3u8"-->
+<!--src="http://12.99.105.147:12307/group1/M00/00/2D/L2FS2lvW7I6AX_39AAAA0v7Hglw26.m3u8"-->
+</body>
+<script>
+  videojs.options.autoplay = true;
+    // var node=document.createElement("LI");
+//    var textnode= document.createTextNode("myVideo");
+//    node.appendChild(textnode);
+//    document.getElementById("myList").appendChild(node);
+
+
+  // videojs 简单使用
+  console.log(videojs);
+  var source = document.getElementById('source');
+  var sourcelist = document.getElementById('sourcelist');
+  var title = document.getElementById('title');
+  var videoorigin = document.getElementById('videoorigin');
+  const src = 'blob:https://videojs.com/81d8956c-195a-4476-9bd6-bb274093c598';
+  source.setAttribute('src', src);
+  var myVideo = videojs('myVideo',{
+    bigPlayButton : true,
+//    controlBar : true,
+    textTrackDisplay : false,
+    posterImage: false,
+    errorDisplay : false,
+    playbackRates: [0.5, 1, 1.5, 2]
+  });
+  myVideo.play(); // 视频播放
+  myVideo.pause(); // 视频暂停
+
+
+//    function changeSource(src) {
+//    }
+
+    function showSourceList() {
+      const sourceList = [
+        { name: 'cctv1', src: 'http://ivi.bupt.edu.cn/hls/cctv1hd.m3u8' },
+        { name: 'cctv2', src: 'http://ivi.bupt.edu.cn/hls/cctv2.m3u8' },
+        { name: 'CCTV3高清', src: 'http://ivi.bupt.edu.cn/hls/cctv3hd.m3u8' },
+        { name: 'CCTV4高清', src: 'http://ivi.bupt.edu.cn/hls/cctv4.m3u8' },
+        { name: 'CCTV5+高清', src: 'http://ivi.bupt.edu.cn/hls/cctv5phd.m3u8' },
+        { name: 'CCTV6高清', src: 'http://ivi.bupt.edu.cn/hls/cctv6hd.m3u8' },
+        { name: 'CCTV7高清', src: 'http://ivi.bupt.edu.cn/hls/cctv7.m3u8' },
+        { name: 'CCTV-8高清 ', src: 'http://ivi.bupt.edu.cn/hls/cctv8hd.m3u8' },
+        { name: 'CCTV-9高清 ', src: 'http://ivi.bupt.edu.cn/hls/cctv9.m3u8' },
+        { name: 'CCTV-10高清 ', src: 'http://ivi.bupt.edu.cn/hls/cctv10.m3u8' },
+        { name: 'CCTV-11高清 ', src: 'http://ivi.bupt.edu.cn/hls/cctv11.m3u8' },
+        { name: 'CCTV-12高清 ', src: 'http://ivi.bupt.edu.cn/hls/cctv12.m3u8' },
+        { name: 'CCTV-13高清 ', src: 'http://ivi.bupt.edu.cn/hls/cctv13.m3u8' },
+        { name: 'CCTV-14高清 ', src: 'http://ivi.bupt.edu.cn/hls/cctv14.m3u8' },
+        { name: 'CCTV-15高清 ', src: 'http://ivi.bupt.edu.cn/hls/cctv15.m3u8' },
+        { name: 'CHC高清电影 ', src: 'http://ivi.bupt.edu.cn/hls/chchd.m3u8' },
+        { name: '北京卫视高清 ', src: 'http://ivi.bupt.edu.cn/hls/btv1hd.m3u8' },
+        { name: '北京文艺高清 ', src: 'http://ivi.bupt.edu.cn/hls/btv2hd.m3u8' },
+        { name: '湖南卫视高清 ', src: 'http://ivi.bupt.edu.cn/hls/hunanhd.m3u8' },
+        { name: '浙江卫视高清 ', src: 'http://ivi.bupt.edu.cn/hls/zjhd.m3u8' },
+        { name: '江苏卫视高清 ', src: 'http://ivi.bupt.edu.cn/hls/jshd.m3u8' },
+        { name: '东方卫视高清 ', src: 'http://ivi.bupt.edu.cn/hls/dfhd.m3u8' },
+        { name: '安徽卫视高清 ', src: 'http://ivi.bupt.edu.cn/hls/ahhd.m3u8' },
+        { name: '黑龙江卫视高清 ', src: 'http://ivi.bupt.edu.cn/hls/hljhd.m3u8' },
+        { name: '辽宁卫视高清 ', src: 'http://ivi.bupt.edu.cn/hls/lnhd.m3u8' },
+        { name: '深圳卫视高清 ', src: 'http://ivi.bupt.edu.cn/hls/szhd.m3u8' },
+        { name: '广东卫视高清 ', src: 'http://ivi.bupt.edu.cn/hls/gdhd.m3u8' },
+        { name: '天津卫视高清 ', src: 'http://ivi.bupt.edu.cn/hls/tjhd.m3u8' },
+        { name: '湖北卫视高清 ', src: 'http://ivi.bupt.edu.cn/hls/hbhd.m3u8' },
+        { name: '东南卫视高清 ', src: 'http://ivi.bupt.edu.cn/hls/sdhd.m3u8' },
+        { name: '北京纪实高清 ', src: 'http://ivi.bupt.edu.cn/hls/btv11hd.m3u8' },
+
+        //
+        { name: '民视新闻台 ', src: 'https://6.mms.vlog.xuite.net/hls/ftvtv/index.m3u8' },
+        // 上面为可用的
+
+      ];
+
+      const list = [];
+      sourceList.map(item => {
+        var sourceListDiv = document.createElement('button');
+        sourceListDiv.id = item.src;
+        sourceListDiv.name = item.name;
+        sourceListDiv.innerText = item.name;
+//        sourceListDiv.setAttribute("onclick", "changeSource(" + item.src + ")");
+        sourceListDiv.onclick = () => {
+          source.setAttribute('src', item.src);
+          console.log('change:', item.src);
+
+
+//          myVideo.setSource(item.src); // 视频播放
+//          myVideo.setAttribute('src', item.src); // 视频播放
+          myVideo.src({
+            src: item.src,
+            type: 'application/x-mpegURL',
+            withCredentials: true
+          });
+          videoorigin.setAttribute('src', item.src);
+          title.innerText = item.name;
+          myVideo.load(); // 视频播放
+          myVideo.play();
+          myVideo.pause(); // 视频暂停
+        };
+        console.log(sourcelist);
+        sourcelist.appendChild(sourceListDiv);
+//        list.push(sourceListDiv)
+      });
+    }
+    showSourceList();
+</script>
+</html>
