@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+
+        window.onload=function () {
+          var oUl=document.getElementById('ull');
+          var aLi=oUl.getElementsByTagName('li');
+
+          for(var i=0;i<aLi.length;i++){
+            if(aLi[i].className==='box'){
+              aLi[i].style.background='red';
+            }
+          }
+        }
+    </script>
+</head>
+<body>
+<ul id="ull">
+    <li class="box"></li>
+    <li class="box"></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li class="box"></li>
+    <li></li>
+    <li></li>
+
+</ul>
+</body>
+</html>
