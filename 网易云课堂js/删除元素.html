@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function () {
+          var aA=document.getElementsByTagName('a');
+          var oUl=document.getElementById('ull');
+          for(var i=0;i<aA.length;i++){
+            aA[i].onclick=function () {
+              oUl.removeChild(this.parentNode);//removeChild删除DOM元素（在某个父级上删除子级）
+            }
+          }
+        }
+    </script>
+</head>
+<body>
+<ul id="ull">
+    <li>dyd 搞不好GV<a href="javascript:;">删除</a> </li>
+    <li>dydctvc778v <a href="javascript:;">删除</a> </li>
+    <li>dyd脑血管大V<a href="javascript:;">删除</a> </li>
+    <li>dydctvc不GV <a href="javascript:;">删除</a> </li>
+    <li>d <a href="javascript:;">删除</a> </li>
+    <li>dydc春风tvcv<a href="javascript:;">删除</a> </li>
+</ul>
+</body>
+</html>

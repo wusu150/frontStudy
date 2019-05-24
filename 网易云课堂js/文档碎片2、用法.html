@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+      window.onload=function () {
+        var oUl=document.getElementById('ull');
+        var oFrag=document.createDocumentFragment();//createDocumentFragment创建文档碎片，提高DOM操作性能
+
+        for(var i=0;i<10000;i++){
+          var oLi=document.createElement('li');
+          oFrag.appendChild(oLi);
+        };
+        oUl.appendChild(oFrag);
+      };
+    </script>
+</head>
+<body>
+<ul id="ull">
+</ul>
+</body>
+</html>
