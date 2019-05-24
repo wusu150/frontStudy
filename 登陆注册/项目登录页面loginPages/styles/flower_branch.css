@@ -1,0 +1,17 @@
+body {
+  background: url("../images/skin_flower_branch.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+}
+
+.container {
+  margin: 20% 20% 2% 10%;
+  width: 500px;
+  height: 100%;
+  color: #4A8B0B;
+}
+.container input,textarea {
+  background-color: #94c3aa;
+  border: 1px solid;
+}

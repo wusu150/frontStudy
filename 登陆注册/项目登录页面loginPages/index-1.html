@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+    <meta name="description" content="登录页">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html, body {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+            font-family: Arial, 'Hiragino Sans GB', '微软雅黑', '黑体-简', Helvetica, sans-serif;
+            font-size: 14px;
+            color: #3d5266;
+            display: flex;
+            opacity: 1;
+            background: url("./images/skin_snow_partner.png") no-repeat center;
+        }
+
+        #container {
+            width: inherit;
+            height: inherit;
+            /*background-image: url("./loginin page 参考/2d7c8f6d9d02284029bb504bded0b1ff9a61952d2f0c3-CpGdG9.png");*/
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1 1 auto;
+        }
+
+        .login-container {
+            background: #ffffff;
+            width: 350px;
+            height: 360px;
+            /*margin: 0 auto;*/
+            display: flex;
+            justify-content: center;
+            /*flex: 1 1 auto;*/
+           /* background: url("./loginin page 参考/2d7c8f6d9d02284029bb504bded0b1ff9a61952d2f0c3-CpGdG9 (复件).png") no-repeat center;*/
+            z-index: 2;
+        }
+
+        .loginContent-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            padding: 5px;
+            height: fit-content;
+            /*width: inherit;*/
+            flex-direction: column;
+            background: #fff;
+        }
+
+        .loginContent-form .head p {
+            font: 21px bold;
+            font-weight:900;
+            margin: 10px;
+            color: #3FA9E3;
+        }
+
+        .loginContent-form hr {
+            width: 100%;
+            color: #E3E3E3;
+        }
+
+        .loginContent-form>ul {
+            padding: 20px;
+        }
+
+        .loginContent-form>ul, .loginContent-form>ul>li {
+            list-style: none;
+        }
+
+        .loginContent-form>ul li {
+            margin-bottom: 20px;
+            display: list-item;
+            text-align: -webkit-match-parent;
+        }
+
+        .loginContent-form>ul .reme-li-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .input-wrapper {
+            width: 280px;
+            height: 40px;
+            border: 1px solid #DCDCDC;
+            background: #fff;
+            color: #BCBCBC;
+            position: relative;
+        }
+
+        .loginContent-form .loginBtn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 280px;
+            height: 42px;
+            background-color: #40A5ED;
+            color: #FFF;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .loginContent-form .loginBtn:hover {
+            box-shadow: 0 0 10px #40A5ED;
+        }
+
+        #container .login-container .loginContent-form a {
+            color: #2F7FDD;
+            text-decoration: none;
+            cursor: pointer
+        }
+
+        #container .login-container .loginContent-form a:hover {
+            color: #C1C1C1;
+        }
+
+        .input-wrapper > input {
+            float: left;
+            width: 70%;
+            text-indent: 5px;
+            border: none;
+            background-color: transparent;
+            padding: 6px 0 0 0;
+            height: 30px;
+            outline: none;
+        }
+
+        .input-wrapper > input {
+            float: left;
+            width: 80%;
+            text-indent: 5px;
+            border: none;
+            background-color: transparent;
+            padding: 6px 0 0 0;
+            height: 30px;
+            outline: none;
+        }
+
+        .imput-username-background {
+            display: inline-block;
+            width: 20px;
+            height: 30px;
+            float: right;
+            margin-right: 5px;
+            background: url("./images/user.png") 0px 14px no-repeat;
+        }
+
+        .imput-password-background {
+            display: inline-block;
+            width: 20px;
+            height: 30px;
+            float: right;
+            margin-right: 5px;
+            background: url("./images/password.png") 0px 14px no-repeat;
+        }
+
+        .reme {
+            margin-right: 6px;
+        }
+
+        .reme:hover {
+            border:1px solid #40A5ED;
+            box-shadow: 0 0 10px #40A5ED;
+        }
+
+        /*去除-webkit内核浏览器中背景色*/
+        input:-webkit-autofill,
+        textarea:-webkit-autofill,
+        select:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0 1000px white inset;
+        }
+
+    </style>
+</head>
+<body>
+<div id="container" class="container">
+    <img
+            style="position:absolute;left:0px;top:0px;width:100%;height:100%;z-Index:-1; border:1px solid blue"
+            src="./images/skin_flower_branch.png" />
+    <div class="login-container">
+        <div class="loginContent-form">
+            <div class="head">
+                <p>欢迎登录后台管理系统</p>
+            </div>
+            <hr />
+            <ul>
+                <li>
+                    <div class="input-wrapper">
+                        <input type="text" name="username" placeholder="账户名称" />
+                        <i class="imput-username-background"></i>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrapper">
+                        <input type="password" name="password" placeholder="账户密码" />
+                        <i class="imput-password-background"></i>
+                    </div>
+                    <span class="error"></span>
+                </li>
+                <li class="reme-li-container">
+                    <span><input type="checkbox" name="reme" class="reme" />这台电脑30天内免登录</span>
+                    <span><a href="">忘记密码？</a></span>
+                </li>
+                <li>
+                    <div class="loginBtn">登录</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

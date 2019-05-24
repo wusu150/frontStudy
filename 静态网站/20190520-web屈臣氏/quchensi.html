@@ -1,0 +1,1129 @@
+<!doctype html>
+<html>
+<head>
+<script src="jquery.js">
+</script>
+<style>
+
+/*重置*/
+body{margin:0px;background-color:#f2f2f2;}
+h1,h2,h3,h4,p{margin:0px;padding:0px;}
+h1,h2,h3,h4{font-weight:normal;font-size:14px;}
+p{letter-spacing:1px;}
+ul,li{margin:0px;padding:0px;}
+li{list-style:none;}
+dl,dd{margin:0px;padding:0px;}
+dt{font-weight:normal;}
+img{display:block;border:none;}
+input{margin:0px;padding:0px;border:none;outline:none;}
+/*top_nav*/
+.top_nav_bg{position:fixed;width:984px;left:50%;top:0;margin-left:-492px;z-index:10;}
+.top_navbox{width:960px;margin-left:auto;margin-right:auto;overflow:hidden;background-color:white;border-image-source:url(img/shadow_both.png);border-width:0px 12px 0px 12px; border-image-slice:0 12 0 12;}
+.top_navbox *{font-size:12px;color:#808080;}
+.top_nav,.gundong{float:left;}
+.top_nav{margin-left:36px;line-height:33px;}
+.gundong{width:300px;margin-left:130px;font-size:14px;font-weight:normal;line-height:33px;}
+.shopping{float:right;line-height:33px;}
+.shopping *{float:left;}
+.shopping img{margin-top:7px;margin-right:10px;}
+.top_nav_shadow{width:960px;height:12px;margin-left:auto;margin-right:auto;opacity:0.6;}
+
+/*logo*/
+.logobox{width:960px;margin-left:auto;margin-right:auto;overflow:hidden;background-color:white;border-image-source:url(img/shadow_both.png);border-width:0px 12px 0px 12px; border-image-slice:0 12 0 12;margin-top:33px;}
+.logo{float:left;margin-top:33px;}
+.ad,.search{float:right;margin-right:36px;}
+.ad *{float:left;margin-left:8px;}
+.ad{margin-top:24px;}
+.search{clear:right;}
+.search *{float:left;margin-top:10px;}
+.search .search01{height:21px; border:solid 1px #808080;font-size:12px;color:#808080;border-width:1px 0px 1px 1px; }
+.search .search02{width:34px;height:23px;background-image:url(img/zoon.png);background-color:white;border:solid 1px #808080;border-width:1px 1px 1px 0px;background-position:center;background-repeat:no-repeat;}
+
+/*mainnav*/
+.mainnavbox{background-color:white;width:960px;border-image-source:url(img/shadow_both.png);border-width:0px 12px 0px 12px; border-image-slice:0 12 0 12;margin-left:auto;margin-right:auto;position:relative;}
+.mainnav{width:942px;border-image:url(img/navshadow.png);border-width:0px 0px 10px 0px;border-image-slice:0 0 10 0;line-height:32px;float:right;margin-top:20px;background-color:#00a0a0;}
+.mainnav .nav{position:relative;float:left;}
+.mainnav .nav dt{color:white;padding:0px 18px;font-size:14px;}
+.mainnav .subnav{position:absolute;left:0px;top:42px;border-top:solid 3px black;width:300px;height:200px;background-color:white;opacity:0.8;z-index:12;}
+.mainnav .subnav_red{position:absolute;left:0px;top:42px;border-top:solid 3px #e82a1a;width:300px;height:200px;background-color:white;opacity:0.8;z-index:12;}
+.mainnav .subnavbg{position:absolute;left:0px;top:32px;width:300px;height:10px;background-color:black;opacity:0.0;z-index:13;}
+.mainnav dl .current_01{background-color:#e82a1a;}
+.mainnav dl .current_02{background-color:black;}
+.mainnavbox img{position:absolute;right:-14px;top:20px;z-index:11;}
+.mainnavbox .clear{clear:both;}
+
+/*block*/
+.block{width:59px;height:65px;background-color:black;;opacity:0.5;position:fixed;right:0px;bottom:-20px;;;display:none;}
+.block img{position:absolute;left:10px;top:5px;}
+
+/*banner*/
+.bannerbox{background-color:white;width:960px;border-image-source:url(img/shadow_both.png);border-width:0px 12px 0px 12px; border-image-slice:0 12 0 12;margin-left:auto;margin-right:auto;overflow:hidden;}
+.bannerbox_left{float:left;margin-top:10px;margin-left:35px;position:relative;}
+.bannerbox_right{float:right;margin-top:10px;margin-right:35px;position:relative;}
+.bannerbox_left a{dispaly:block;}
+.button_left{position:absolute;bottom:0px;width:700px;background-color:#e5e5e5;}
+.button_left li{float:left;line-height:36px;font-size:14px;color:#666;width:116px;cursor:pointer;}
+.button_left li *{float:left;}
+.button_left li img{margin:14px 7px 14px 0px;}
+.button_left li span{text-align:center}
+.button_left .col1{background-color:#FFF;color:black;}
+
+.button_right{background-color:;width:95px;height:36px;position:absolute;left:50%;bottom:0px;}
+.button_right li{float:right;width:10px;height:10px;border-radius:50%;background-color:#808080;margin:13px 6px;}
+.button_right .col2{background-color:#e600a0}
+
+/*ad*/
+.adbg{background-color:white;width:960px;border-image-source:url(img/shadow_both.png);border-width:0px 12px 0px 12px; border-image-slice:0 12 0 12;margin-left:auto;margin-right:auto; overflow:hidden;}
+.adbox{width:930px;margin-left:30px;margin-top:10px;}
+.adbox img{float:left;margin:0px 5px;}
+
+/*productleft*/
+.bigbox{background-color:white;width:960px;border-image-source:url(img/shadow_both.png);border-width:0px 12px 0px 12px; border-image-slice:0 12 0 12;margin-left:auto;margin-right:auto;}
+.bigbox_left{float:left;margin-top:39px;margin-left:36px;}
+.bigbox_left_1{position:relative;margin-bottom:18px;}
+.bigbox_left_1 .hot_right{padding-right:16px;font-family:"微软雅黑";font-size:18px;color:white;line-height:29px;text-align:left;background-color:black;box-shadow:0px 2px 4px #333 ;position:absolute;left:-36px;top:-29px;}
+.bigbox_left_1 .hot_left{position:absolute;left:-43px;top:-29px;z-index:11px;}
+.productbox_outside{width:720px;overflow:hidden;}
+.productbox_inside{width:900px;overflow:hidden;}
+.productbox{width:150px;margin-top:18px;margin-bottom:40px;margin-right:30px;float:left;}
+.product img{width:150px;}
+
+.introduction div{overflow:hidden;}
+.introduction div img{float:left;margin-right:3px;margin-bottom:5px;}
+.introduction .zoom{margin-top:2px;}
+
+/*productright*/
+.bigbox_right{float:right;margin-right:36px;margin-top:33px;width:168px;}
+@font-face {
+	font-family:langting;
+	src:url(ziti/ltzhjianti.TTF)
+	}
+	
+/*friendlogo*/
+.friendlogobg{background-color:white;width:960px;border-image-source:url(img/shadow_both.png);border-width:0px 12px 0px 12px; border-image-slice:0 12 0 12;margin-left:auto;margin-right:auto;
+position:relative;}
+.title_right{padding-right:16px;font-family:"微软雅黑";font-size:18px;color:white;line-height:29px;text-align:left;background-color:#e600a0;box-shadow:0px 2px 4px #333 ;position:absolute;left:0px;top:0px;}
+.title_left{position:absolute;left:-7px;top:0px;z-index:14;}
+.friendlogobox{width:888px;padding-left:36px;padding-top:40px;padding-bottom:20px;overflow:hidden;}
+.picbox{width:87px;height:28px;padding:22px 12px;float:left;}
+.picbox img{height:28px;margin-left:auto;margin-right:auto;}
+
+/*connectus*/
+.connectusbg{background-color:white;width:960px;border-image-source:url(img/shadow_both.png);border-width:0px 12px 0px 12px; border-image-slice:0 12 0 12;margin-left:auto;margin-right:auto;}
+.connectusbox{width:890px;border-top:dotted 1px #666;border-bottom:dotted 1px #666;margin-left:auto;margin-right:auto;}
+.connectusbox .joinus{float:left;padding:10px 0px;}
+.joinus img,.joinus dl{float:left;margin-right:5px;}
+.connectusbox .connectus{float:left;padding:10px 0px;margin-left:105px;}
+.connectus img,.connectus dl{float:left;margin-right:5px;}
+.connectusbox .qrbox{float:left;margin-left:105px;position:relative;}
+.qrbox *{float:left;}
+.qrbox p{width:14px;font-size:12px;color:#666;margin-right:5px;}
+.qrbox .qr{height:45px;margin-top:5px;margin-right:5px;}
+.connectapp{float:right;}
+.connectapp img{float:left;margin:10px 5px;}
+
+/*footer*/
+.footerbox{background-color:white;width:960px;border-image-source:url(img/shadow_both.png);border-width:0px 12px 0px 12px; border-image-slice:0 12 0 12;margin-left:auto;margin-right:auto;overflow:hidden;}
+.footerbox .footer{margin:8px 36px 0px 36px;overflow:hidden;}
+.footerbox dl{float:left;}
+</style>
+<meta charset="utf-8">
+<title>屈臣氏官方网站</title>
+</head>
+
+<body>
+<!--top_nav-->
+<div class="top_nav_bg">
+    <div class="top_navbox">
+             <div class="top_nav"><a href="" style="color:#00a0a0;">我的账户</a> |  <a href="">会员登陆</a> | <a href="">会员注册</a></div>
+             <div class="gundong" ><marquee style="color:black;">全场实付满150包邮!(部分偏远地区补加部分邮费)</marquee></div>
+             <div class="shopping">
+                 <img src="img/lanzi.png">
+                 <a href="">收藏夹</a> 
+                 <div>&nbsp; | 我的购物篮&nbsp;&nbsp;&nbsp;</div>      
+             </div>   
+    </div>
+    <img class="top_nav_shadow" src="img/top_nav_shadow.png">
+</div>
+
+<!--logo-->
+<div class="logobox">
+ 	<img class="logo" src="img/logo.png">
+    <div class="ad">
+    	<a href><img src="img/link_red.png"> </a>
+        <a href><img src="img/link_blue.png"> </a>
+    </div>
+    <div class="search">
+    	<input class="search01"  value="&nbsp;&nbsp;&nbsp;&nbsp;产品或品牌&nbsp;&nbsp;&nbsp;&nbsp;搜索 ">
+        <input class="search02" type="button">
+    </div>
+    <script>
+	$("input:first").focus(function(){
+		$(this).val("")
+	});
+	$("input:first").blur(function(){
+		$(this).val("  产品或品牌   搜索 ")
+	})
+	</script>
+</div>
+
+<!--slideclock-->
+<div class="block">
+<img src="img/toumingjiatou.png">
+</div>
+<script>
+var n=0;
+$(document).scroll(function(){
+	n=$(document).scrollTop();
+
+	if(n==0){
+		$(".block").hide()
+		}else{$(".block").show()}
+	});
+$(".block").click(function(){
+	$(document).scrollTop(0);	
+	})
+</script>
+
+<!--mainnav-->
+<div class="mainnavbox">
+	<div class="mainnav">
+    	<dl class="nav">
+            <dt>特惠</dt>
+             <dd  class="subnav_red "  style="display:none;width:235px;height:120px;" >
+             	<img src="img/hongjiantou.png" style="position:absolute;left:20px;top:-9px;">
+                <dl style="font-size:14px;color:#e82a1a;line-height:30px;font-weight:bold;">
+                	<dd style="padding:10px 30px;float:left;">款绑商品 </dd>
+                    <dd style="padding:10px  30px;float:left;">会员价</dd>
+                    <dd style="padding:10px 30px;float:left;">立减优惠</dd>
+                </dl>
+             </dd>
+             <dd class="subnavbg" >
+             </dd>
+         </dl>
+        <dl class="nav">
+        	<dt>皮肤护理</dt>
+            <dd class="subnav" style="display:none;height:400px;width:230px;">
+             	<img src="img/heijiantou.png" style="position:absolute;left:20px;top:-9px;">
+                <dl style="font-size:14px;color:#333;line-height:30px;margin:15px;float:left;">
+                	<dd style="font-weight:bold;line-height:30px;color:#cc299b;">面部护理</dd>
+                    <dd style="font-size:12px;line-height:28px;"> 爽肤水/ 喷雾</dd>
+                  	<dd style="font-size:12px;line-height:28px;"> 乳液/面霜 </dd>
+                    <dd style="font-size:12px;line-height:28px;">精华液  </dd>
+                    <dd style="font-size:12px;line-height:28px;">面膜 </dd>
+                </dl>
+                  <dl style="font-size:14px;color:#333;line-height:30px;margin:15px;float:left;">
+                	<dd style="font-weight:bold;line-height:30px;color:#cc299b;">眼部护理 </dd>
+                    <dd style="font-size:12px;line-height:28px;"> 眼膜 </dd>
+                  	<dd style="font-size:12px;line-height:28px;"> 唇部护理 </dd>
+                    <dd style="font-size:12px;line-height:28px;"> T区清洁驱痘护理 </dd>
+                    <dd style="font-size:12px;line-height:28px;">橄榄油  </dd>
+                    <dd style="font-size:12px;line-height:28px;">旅行装  </dd>
+                </dl>
+                <dl style="font-size:14px;color:#333;line-height:30px;margin:15px;float:left;">
+                	<dd style="font-weight:bold;line-height:30px;color:#cc299b;">身体护理  </dd>
+                    <dd style="font-size:12px;line-height:28px;">  身体乳液 </dd>
+                  	<dd style="font-size:12px;line-height:28px;"> 手足护理产品 </dd>
+                    <dd style="font-size:12px;line-height:28px;"> 脱毛产品</dd>
+                    <dd style="font-size:12px;line-height:28px;">防晒护理</dd>
+                    <dd style="font-size:12px;line-height:28px;">婴幼儿专区 </dd>
+                </dl>
+            </dd>
+            <dd class="subnavbg" >
+            </dd>
+        </dl>
+        <dl class="nav">
+        	<dt>头发护理</dt>
+       		<dd class="subnav" style="display:none;width:330px;height:150px;">
+         		<img src="img/heijiantou.png" style="position:absolute;left:20px;top:-9px;">
+                  <dl style="font-size:14px;color:#333;line-height:30px;margin:15px;float:left;">
+                	<dd style="font-weight:bold;line-height:30px;color:#cc299b;">洗护</dd>
+                    <dd style="font-size:12px;line-height:28px;">洗发水</dd>
+                  	<dd style="font-size:12px;line-height:28px;"> 护发素</dd>
+                    <dd style="font-size:12px;line-height:28px;"> 深入修复 </dd>
+                 </dl>
+                 <dl style="font-size:14px;color:#333;line-height:30px;margin:15px;float:left;">
+                	<dd style="font-weight:bold;line-height:30px;color:#cc299b;">造型</dd>
+                    <dd style="font-size:12px;line-height:28px;">发泥发蜡</dd>
+                  	<dd style="font-size:12px;line-height:28px;">弹力素</dd>
+                    <dd style="font-size:12px;line-height:28px;"> 啫喱水/膏</dd>
+                 </dl>
+                 <dl style="font-size:14px;color:#333;line-height:30px;margin:15px;float:left;">
+                	<dd style="font-weight:bold;line-height:30px;color:#cc299b;">染发 </dd>
+                    <dd style="font-size:12px;line-height:28px;">遮盖白发</dd>
+                  	<dd style="font-size:12px;line-height:28px;"> 时尚彩色</dd>
+                    
+                 </dl>
+                 <dl style="font-size:14px;color:#333;line-height:30px;margin:15px;float:left;">
+                	<dd style="font-weight:bold;line-height:30px;color:#cc299b;">美发工具</dd>
+                   
+                 </dl>
+        	</dd>
+            <dd class="subnavbg" >
+            </dd>
+        </dl>
+        <dl class="nav">
+        	<dt>个人护理</dt>
+       		<dd class="subnav" style="display:none; height:350px;width:280px;">
+         		<img src="img/heijiantou.png" style="position:absolute;left:20px;top:-9px;">
+                <dl style="font-size:14px;color:#333;line-height:30px;margin:15px;float:left;">
+                	<dd style="font-weight:bold;line-height:30px;color:#cc299b;">沐浴</dd>
+                    <dd style="font-size:12px;line-height:28px;">沐浴露 </dd>
+                  	<dd style="font-size:12px;line-height:28px;">磨砂浴盐</dd>
+                    <dd style="font-size:12px;line-height:28px;">止汗香体 </dd>
+                 </dl>
+                  <dl style="font-size:14px;color:#333;line-height:30px;margin:15px;float:left;">
+                	<dd style="font-weight:bold;line-height:30px;color:#cc299b;">女性护理</dd>
+                    <dd style="font-size:12px;line-height:28px;">卫生巾/棉条</dd>
+                  	<dd style="font-size:12px;line-height:28px;">护垫</dd>
+                    <dd style="font-size:12px;line-height:28px;">护理液</dd>
+                 </dl>
+                  <dl style="font-size:14px;color:#333;line-height:30px;margin:15px;float:left;">
+                	<dd style="font-weight:bold;line-height:30px;color:#cc299b;">口腔护理</dd>
+                    <dd style="font-size:12px;line-height:28px;">牙刷</dd>
+                  	<dd style="font-size:12px;line-height:28px;">牙膏</dd>
+                    <dd style="font-size:12px;line-height:28px;">特别护理</dd>
+                 </dl>
+                 <dl style="font-size:14px;color:#333;line-height:30px;margin:15px;float:left;">
+                	<dd style="font-weight:bold;line-height:30px;color:#cc299b;">纸品/棉</dd>
+     				<dd style="font-size:12px;line-height:28px;">内裤</dd>
+                 </dl>
+                  <dl style="font-size:14px;color:#333;line-height:30px;margin:15px;float:left;">
+                	<dd style="font-weight:bold;line-height:30px;color:#cc299b;">洗护用品</dd>
+     				
+                 </dl>
+                  <dl style="font-size:14px;color:#333;line-height:30px;margin:15px;float:left;">
+                	<dd style="font-weight:bold;line-height:30px;color:#cc299b;">家居用品</dd>
+     				
+                 </dl>
+                 <dl style="font-size:14px;color:#333;line-height:30px;margin:15px;float:left;clear:left;">
+                	<dd style="font-weight:bold;line-height:30px;color:#cc299b;">婴幼儿专区</dd>
+     				<dd style="font-size:12px;line-height:28px;">纸尿裤</dd>
+                    <dd style="font-size:12px;line-height:28px;">喂哺用品</dd>
+                 </dl
+                
+                
+                
+                
+         	></dd>
+            <dd class="subnavbg" >
+            </dd>
+        </dl>
+        <dl class="nav"><dt>男士护理</dt>
+        	<dd class="subnav" style="display:none;width:150px;">                                                                        
+         		<img src="img/heijiantou.png" style="position:absolute;left:20px;top:-9px;">
+                 <dl style="font-size:14px;color:#333;line-height:30px;margin:15px;float:left;">
+                	<dd style="font-weight:bold;line-height:30px;color:#cc299b;">洗护 </dd>
+                   <dd style="font-weight:bold;line-height:30px;color:#cc299b;">沐浴 </dd>
+                   <dd style="font-weight:bold;line-height:30px;color:#cc299b;">剃须</dd>
+                 </dl>
+                 <dl style="font-size:14px;color:#333;line-height:30px;margin:15px;float:left;">
+                	<dd style="font-weight:bold;line-height:30px;color:#cc299b;">面部护理 </dd>
+     				<dd style="font-size:12px;line-height:28px;">洁面</dd>
+                    <dd style="font-size:12px;line-height:28px;">爽肤水</dd>
+                    <dd style="font-size:12px;line-height:28px;">乳液/面霜</dd>
+                    <dd style="font-size:12px;line-height:28px;">唇膏</dd>
+                 </dl>
+                
+         	</dd>
+            <dd class="subnavbg" >
+            </dd>
+        </dl>
+        <dl class="nav">
+        	<dt>美丽彩妆</dt>
+            <dd class="subnav" style="display:none;">                                                                        
+         		<img src="img/heijiantou.png" style="position:absolute;left:20px;top:-9px;">
+                 
+                 <dl style="font-size:14px;color:#333;line-height:30px;margin:20px;float:left;">
+                	<dd style="font-weight:bold;line-height:30px;color:#cc299b;">面部彩妆 </dd>
+     				<dd style="font-size:12px;line-height:28px;">BB霜</dd>
+                    <dd style="font-size:12px;line-height:28px;">粉底</dd>
+                    <dd style="font-size:12px;line-height:28px;">腮红</dd>
+                    <dd style="font-size:12px;line-height:28px;">散粉</dd>
+                 </dl>
+                  <dl style="font-size:14px;color:#333;line-height:30px;margin:15px;float:left;">
+                	<dd style="font-weight:bold;line-height:30px;color:#cc299b;">眼部彩妆 </dd>
+     				<dd style="font-size:12px;line-height:28px;">睫毛膏</dd>
+                    <dd style="font-size:12px;line-height:28px;">眼影</dd>
+                    <dd style="font-size:12px;line-height:28px;">眼线笔/膏/液</dd>
+                    <dd style="font-size:12px;line-height:28px;">眉笔</dd>
+                 </dl>
+                  <dl style="font-size:14px;color:#333;line-height:30px;margin:15px;float:left;">
+                	<dd style="font-weight:bold;line-height:30px;color:#cc299b;">唇部彩妆 </dd>
+     				<dd style="font-size:12px;line-height:28px;">卸妆</dd>
+                    <dd style="font-size:12px;line-height:28px;">美容工具</dd>
+               
+                 </dl>
+                
+         	</dd>
+            <dd class="subnavbg" >
+            </dd>
+		</dl>
+        <dl class="nav"><dt>营养健康</dt>
+        	<dd class="subnav" style="display:none;width:150px;">                                                                        
+         		<img src="img/heijiantou.png" style="position:absolute;left:20px;top:-9px;">
+                 <dl style="font-size:14px;color:#333;line-height:50px;margin:15px 40px;float:left;">
+                	<dd style="font-weight:bold;line-height:30px;color:#cc299b;">美肌食品</dd>
+                   <dd style="font-weight:bold;line-height:30px;color:#cc299b;">美体塑形</dd>
+                   <dd style="font-weight:bold;line-height:30px;color:#cc299b;">膳食补充</dd>
+                   <dd style="font-weight:bold;line-height:30px;color:#cc299b;">外用护理</dd>
+                   <dd style="font-weight:bold;line-height:30px;color:#cc299b;">计生用品</dd>
+                  
+                 </dl>
+               
+                
+         	</dd>
+            <dd class="subnavbg" >
+            </dd>
+        
+        
+        </dl>
+        <dl class="nav"><dt>品牌分类</dt>
+        	<dd class="subnav" style="display:none;position:absolute;left:-170px;top:42px;border-top:solid 3px black;width:410px;border-left:dotted 1px black;border-right:dotted 1px black;border-bottom:dotted 1px black;height:420px;background-color:white;opacity:0.8;z-index:12;">                                                                        
+         		<img src="img/heijiantou.png" style="position:absolute;left:200px;top:-9px;">
+                 <dl style="font-size:14px;color:#333;line-height:30px;margin:30px 10px 30px 10px;float:left;">
+                	<dd style="font-weight:bold;line-height:30px;color:#333;border-bottom:dashed 1px #333;text-align:center;">最新  </dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">SKIN Advanced</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">Letsaqua</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">兰瑟</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">瑷露德玛</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">猫语玫瑰</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">一花一木</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">玫凯娜</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">一叶子</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">康力士</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">Makeup</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">Miracle</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">男士</dd>
+                 </dl>
+                     <dl style="font-size:14px;color:#333;line-height:30px;margin:30px 10px 30px 10px;float:left;">
+                	<dd style="font-weight:bold;line-height:30px;color:#333;border-bottom:dashed 1px #333;text-align:center;"> 最受欢迎</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">我的美丽日志</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">里美</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">水之蔻</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">欧莱雅</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">碧柔</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">飘柔</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">肌研</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">玉兰油</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">魔法医生</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">沙宣</dd>
+             
+                 </dl>
+                     <dl style="font-size:14px;color:#333;line-height:30px;margin:30px 10px 30px 10px;float:left;">
+                	<dd style="font-weight:bold;line-height:30px;color:#333;border-bottom:dashed 1px #333;text-align:center;">独家 </dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">SKIN Advanced</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center"> 魔法医生</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">水之蔻</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">花印</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">韩后</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">艾玛丝</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">森田</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">QVS</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">KURIHA</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">百洛</dd>
+                
+                 </dl>
+                     <dl style="font-size:14px;color:#333;line-height:30px;margin:30px 10px 30px 10px;float:left;">
+                	<dd style="font-weight:bold;line-height:30px;color:#333;border-bottom:dashed 1px #333;text-align:center;">最人气 </dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">屈臣氏燕窝</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">屈臣氏天丝系列</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">屈臣氏骨胶原</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center"> 屈臣氏Water360°</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">屈臣氏男士护理</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">屈臣氏橄榄</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">屈臣氏绿茶</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">SKIN Advanced</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center"> SKIN simple</dd>
+                    <dd style="font-size:12px;line-height:28px;text-align:center">屈臣氏虫草</dd>
+     
+                 </dl>
+                  
+                
+                
+         	</dd>
+            <dd class="subnavbg" >
+            </dd>
+        
+        
+        </dl>
+        <dl class="nav"><dt>爱美丽学堂</dt></dl>
+        <dl class="nav" style="padding-right:20px;"><dt>会员专区</dt></dl>
+</div>
+ <img src="img/cebian.png">
+ <div class="clear"> </div>
+</div>
+<script>
+var
+ x=0;
+$(".mainnav .nav").mouseenter(function(){
+	x=$(this).index();
+	if (x==0) {
+		$(this).children("dt").addClass("current_01");
+		$(this).children("dd").slideDown("fast");	
+}else{
+		$(this).children("dt").addClass("current_02");
+		$(this).children("dd").slideDown("fast");
+}
+});
+$(".mainnav .nav").mouseleave(function(){
+	x=$(this).index();
+	if(x==0){$(this).children("dt").removeClass("current_01");
+		$(this).children("dd").slideUp("fast")
+	}else{
+		$(this).children("dt").removeClass("current_02");
+		$(this).children("dd").slideUp("fast");
+}
+});	
+</script>
+
+<!--banner-->
+<div class="bannerbox">
+	<div class="bannerbox_left">
+           	<a href=""><img src="img/8909475840030.jpg"></a>
+            <a href=""><img src="img/8909476266014.jpg"></a>
+            <a href=""><img src="img/8909476528158.jpg"></a>
+            <a href=""><img src="img/8909476691998.jpg"></a>
+            <a href=""><img src="img/Banner-HWB-01-20150813.jpg"></a>
+            <a href=""><img src="img/Banner-PG-04-20150813.jpg"></a>
+            <ul class="button_left">
+                <li><span style="margin-left:10px;">|</span><span style="width:82px;">美丽大赏赐</span><img src="img/xiaojiantou.png"> </li>
+                <li><span style="margin-left:10px;">|</span><span style="width:82px;">2件省更多</span><img src="img/xiaojiantou.png"></li>
+                <li><span style="margin-left:10px;">|</span><span style="width:82px;">精明之选</span><img src="img/xiaojiantou.png"></li>
+                <li><span style="margin-left:10px;">|</span><span style="width:82px;">宝洁月</span><img src="img/xiaojiantou.png"></li>
+                <li><span style="margin-left:10px;">|</span><span style="width:82px;">施华蔻</span><img src="img/xiaojiantou.png"></li>
+                <li><span style="margin-left:10px;">|</span><span style="width:82px;">韩束</span><img src="img/xiaojiantou.png"></li>
+            </ul>
+    </div>
+    
+<script>
+   var n=0;
+   $(".bannerbox_left img").hide().first().show();
+   $(".button_left li").click(function(){
+		$(".button_left li").removeClass("col1");
+		$(this).addClass("col1");
+		n=$(this).index();
+		$(".bannerbox_left img").hide().eq(n).show();
+   });
+function fx(){
+if(n<5)
+	{n=n+1;
+		$(".button_left li").removeClass("col1");
+	$(".button_left li").eq(n).addClass("col1"); 
+	$(".bannerbox_left img").hide().eq(n).show();} 
+else{ n=0;
+	$(".button_left li").removeClass("col1");
+	$(".button_left li").first().addClass("col1"); 
+	$(".bannerbox_left img").hide().first().show();
+	
+	}
+   }
+var 
+t=setInterval(fx,10000);
+$(".bannerbox_left").mouseenter(function(){
+		clearInterval(t);}).mouseleave(function(){
+			t=setInterval(fx,10000);
+			
+		})
+
+</script>
+
+    <div class="bannerbox_right">
+    	<img src="img/8908225445918.jpg">
+        <img src="img/8909477085214.jpg">
+        <ul class="button_right">
+        	<li></li>
+            <li></li>
+        </ul>
+    </div>
+</div>
+
+<script>
+   var 
+   m=0;
+   $(".bannerbox_right img").hide().first().show();
+   $(".button_right li").click(function(){
+		$(".button_right li").removeClass("col2");
+		$(this).addClass("col2");
+		m=$(this).index();
+		$(".bannerbox_right img").hide().eq(m).show();
+   });
+   function fm(){
+if(m<1)
+	{m=m+1;
+		$(".button_right li").removeClass("col2");
+	$(".button_right li").eq(m).addClass("col2"); 
+	$(".bannerbox_right img").hide().eq(m).show();} 
+else{ m=0;
+	$(".button_right li").removeClass("col2");
+	$(".button_right li").first().addClass("col2"); 
+	$(".bannerbox_right img").hide().first().show();
+	
+	}
+   }
+var o=setInterval(fm,5000);
+$(".bannerbox_right").mouseenter(function(){
+		clearInterval(o);}).mouseleave(function(){
+			t=setInterval(fm,5000);
+			
+		})
+</script>
+
+<!--ad-->
+<div class="adbg">
+	<div class="adbox">
+    	<img src="img/ad1.png">
+        <img src="img/ad2.png">
+        <img src="img/ad3.png">
+    </div>
+</div>
+
+<!--product-->
+<div class="bigbox">
+	<div class="bigbox_left">
+<!--product01-->
+            <div class="bigbox_left_1">
+                <div class="hot_right">热力推荐</div>
+                <img  class="hot_left" src="img/hots.png">
+                <div class="productbox_outside">
+                	<div class="productbox_inside" >
+                     	<dl class="productbox" style="position:relative;" >
+                        	<img  style="position:absolute;right:0px;top:-18px;"src="img/smalllogo.png">
+                            <dt class="product"><img src="img_product/H_00001.jpg"></dt>
+                            <dd class="introduction">
+                                <div>
+                                    <img class="zoom" src="img/zoon.png">
+                                    <img src="img/lanzi.png">
+                                </div>
+                                <h1 style="font-size:14px;color:black;line-height:28px;">屈臣氏燕窝</h1>
+                                <p style="font-size:12px;line-height:20px;color:#333; text-indent:0px;">【买一送一】屈臣氏燕窝沁白面膜6片装</p>
+                                <span style="display:block;font-size:14px;color:#808080;font-weight:normal;font-family:'微软雅黑';">￥65.00</span>
+                            </dd>
+                        </dl>
+                        <dl class="productbox" style="position:relative;" >
+                            <dt class="product"><img src="img_product/H_00002.jpg"></dt>
+                            <dd class="introduction">
+                            	<div style="color:white;font-size:12px;position:absolute;left:0px;bottom:-25px;overflow:hidden;"><span style="padding:2px 4px;background-color:black;                                            margin-right:10px;float:left;">独家</span><span style="padding:2px 4px;background-color:#e600a0;float:left;">																								                                       立减优惠</span></div>
+                                <div class="div1">
+                                    <img class="zoom" src="img/zoon.png">
+                                    <img src="img/lanzi.png">
+                                </div>
+                                <h1 style="font-size:14px;color:black;line-height:28px;">花印</h1>
+                                <p style="font-size:12px;line-height:20px;color:#333; text-indent:0px;">花印水漾洁净洗面奶120克（加量30克装随机发货）</p>
+                                <div class="div2">
+                                	<span style="float:left;font-size:14px;color:#808080;font-weight:normal;font-family:'微软雅黑';text-decoration:line-through;margin-right:15px;">￥65.00</span>
+                                    <span style="float:left;color:#e600a0;text-decoration:none;font-family:'微软雅黑';font-size:14px;">￥45.00</span>
+                                </div>
+                            </dd>
+                        </dl>
+                         <dl class="productbox" >
+                            <dt class="product"><img src="img_product/I000135_1_jpg.jpg"></dt>
+                            <dd class="introduction">
+                                <div>
+                                    <img class="zoom" src="img/zoon.png">
+                                    <img src="img/lanzi.png">
+                                </div>
+                                <h1 style="font-size:14px;color:black;line-height:28px;">里美</h1>
+                                <p style="font-size:12px;line-height:20px;color:#333; text-indent:0px;">【组合价】 里美玫瑰絮语润白亮肌柔肤160毫升</p>
+                                <span style="display:block;font-size:14px;color:#808080;font-weight:normal;font-family:'微软雅黑';">￥99.00</span>
+                            </dd>
+                        </dl>
+                        <dl class="productbox" style="position:relative;">
+                            <dt class="product"><img src="img_product/H_00003.jpg"></dt>
+                            <dd class="introduction">
+                            	<img  style="position:absolute;right:0px;top:-18px;"src="img/smalllogo.png">
+                                <div>
+                                    <img class="zoom" src="img/zoon.png">
+                                    <img src="img/lanzi.png">
+                                </div>
+                                <h1 style="font-size:14px;color:black;line-height:28px;">丝塔芙</h1>
+                                <p style="font-size:12px;line-height:20px;color:#333; text-indent:0px;">丝塔芙洁面乳237毫升（近效期产品）</p>
+                                <span style="display:block;font-size:14px;color:#808080;font-weight:normal;font-family:'微软雅黑';">￥59.00</span>
+                            </dd>
+                        </dl>
+                         <dl class="productbox" >
+                            <dt class="product"><img src="img_product/H_00005.jpg"></dt>
+                            <dd class="introduction">
+                                <div>
+                                    <img class="zoom" src="img/zoon.png">
+                                    <img src="img/lanzi.png">
+                                </div>
+                                <h1 style="font-size:14px;color:black;line-height:28px;">屈臣氏WATER360&#176</h1>
+                                <p style="font-size:12px;line-height:20px;color:#333; text-indent:0px;">【组合价】屈臣氏 WATER360矿泉水珠莹漾</p>
+                                <span style="display:block;font-size:14px;color:#808080;font-weight:normal;font-family:'微软雅黑';">￥80.00</span>
+                            </dd>
+                        </dl>
+                	</div>
+                </div>
+            </div>
+            
+<!--product2-->          
+            <div class="bigbox_left_1">
+                <div class="hot_right">畅销商品</div>
+                <img  class="hot_left" src="img/hots.png">
+                <div class="productbox_outside">
+                	<div class="productbox_inside" >
+                     	<dl class="productbox" style="position:relative;" >
+                        	
+                            <dt class="product"><img src="img_product/I001985_1.jpg"></dt>
+                            <dd class="introduction">
+                                <div>
+                                    <img class="zoom" src="img/zoon.png">
+                                    <img src="img/lanzi.png">
+                                </div>
+                                <h1 style="font-size:14px;color:black;line-height:28px;">森田</h1>
+                                <p style="font-size:12px;line-height:20px;color:#333; text-indent:0px;">【买一送一】森田蜗牛透滑精华面膜（4）片</p>
+                                <span style="display:block;font-size:14px;color:#808080;font-weight:normal;font-family:'微软雅黑';">￥65.00</span>
+                            </dd>
+                        </dl>
+                        <dl class="productbox" style="position:relative;" >
+                            <dt class="product"><img src="img_product/100285724_1.jpg"></dt>
+                            <dd class="introduction">
+                            	<div style="color:white;font-size:12px;position:absolute;left:0px;bottom:-25px;overflow:hidden;"><span style="padding:2px 4px;background-color:black;                                            margin-right:10px;float:left;">独家</span><span style="padding:2px 4px;background-color:#e600a0;float:left;">																								                                       立减优惠</span></div>
+                                <div class="div1">
+                                    <img class="zoom" src="img/zoon.png">
+                                    <img src="img/lanzi.png">
+                                </div>
+                                <h1 style="font-size:14px;color:black;line-height:28px;">魔法医生</h1>
+                                <p style="font-size:12px;line-height:20px;color:#333; text-indent:0px;">魔法医生玫瑰透光亮白净肌水150毫升</p>
+                                <div class="div2">
+                                	<span style="float:left;font-size:14px;color:#808080;font-weight:normal;font-family:'微软雅黑';text-decoration:line-through;margin-right:15px;">￥135.00 </span>
+                                    <span style="float:left;color:#e600a0;text-decoration:none;font-family:'微软雅黑';font-size:14px;">￥79.00</span>
+                                </div>
+                            </dd>
+                        </dl>
+                         <dl class="productbox" style="position:relative;">
+                            <dt class="product"><img src="img_product/100074130_1.jpg"></dt>
+                            <dd class="introduction">
+                            <div style="color:white;font-size:12px;position:absolute;left:0px;bottom:-25px;overflow:hidden;"><span style="padding:2px 4px;background-color:#e600a0;float:left;">																								                                       立减优惠</span></div>
+                                <div>
+                                    <img class="zoom" src="img/zoon.png">
+                                    <img src="img/lanzi.png">
+                                </div>
+                                <h1 style="font-size:14px;color:black;line-height:28px;">强生</h1>
+                                <p style="font-size:12px;line-height:20px;color:#333; text-indent:0px;">强生婴儿牛奶沐浴露1000毫升</p>
+                                 <div class="div2">
+                                	<span style="float:left;font-size:14px;color:#808080;font-weight:normal;font-family:'微软雅黑';text-decoration:line-through;margin-right:15px;">￥45.00  </span>
+                                    <span style="float:left;color:#e600a0;text-decoration:none;font-family:'微软雅黑';font-size:14px;">￥29.00</span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="productbox" style="position:relative;">
+                            <dt class="product"><img src="img_product/100345616_1_jpg.jpg"></dt>
+                            <dd class="introduction">
+                            	<div style="color:white;font-size:12px;position:absolute;left:0px;bottom:-25px;overflow:hidden;"><span style="padding:2px 4px;background-color:black;                                            margin-right:10px;float:left;">独家</span><span style="padding:2px 4px;background-color:#e600a0;float:left;">																								                                       立减优惠</span></div>
+                                <div>
+                                    <img class="zoom" src="img/zoon.png">
+                                    <img src="img/lanzi.png">
+                                </div>
+                                <h1 style="font-size:14px;color:black;line-height:28px;font-family: Arial"> SKIN Advanced</h1>
+                                <p style="font-size:12px;line-height:20px;color:#333; text-indent:0px;"><span style="font-family: Arial"> SKIN Advanced</span>&nbsp;白金舒润水凝乳夜45毫升</p>
+                         		<div class="div2">
+                           			<span style="float:left;font-size:14px;color:#808080;font-weight:normal;font-family:'微软雅黑';text-decoration:line-through;margin-right:15px;">￥149.00</span>
+                                    <span style="float:left;color:#e600a0;text-decoration:none;font-family:'微软雅黑';font-size:14px;">￥45.00</span>
+                                </div>
+                            </dd>
+                        </dl>
+                	</div>
+                </div>
+            </div>
+          
+<!--product3-->             
+             <div class="bigbox_left_1">
+                <div class="hot_right">特惠商品</div>
+                <img  class="hot_left" src="img/hots.png">
+                <div class="productbox_outside">
+                	<div class="productbox_inside" >
+                     	<dl class="productbox" style="position:relative;" >
+                        	<img  style="position:absolute;right:0px;top:-18px;" src="img/smalllogo.png">
+                            <dt class="product"><img src="img_product/I004402_1.jpg"></dt>
+                            <dd class="introduction">
+                                <div>
+                                    <img class="zoom" src="img/zoon.png">
+                                    <img src="img/lanzi.png">
+                                </div>
+                                <h1 style="font-size:14px;color:black;line-height:28px;">屈臣氏骨胶原</h1>
+                                <p style="font-size:12px;line-height:20px;color:#333; text-indent:0px;">【买一送一】屈臣氏骨胶原透亮去角质啫喱100克</p>
+                                <span style="display:block;font-size:14px;color:#808080;font-weight:normal;font-family:'微软雅黑';">￥59.90 </span>
+                            </dd>
+                        </dl>
+                        <dl class="productbox" style="position:relative;" >
+                            <dt class="product"><img src="img_product/100435609_1.jpg"></dt>
+                            <dd class="introduction">
+                            	<img  style="position:absolute;right:0px;top:-18px;"src="img/smalllogo.png">
+                            	<div style="color:white;font-size:12px;position:absolute;left:0px;bottom:-25px;overflow:hidden;"> 
+                                <span style="padding:2px 4px;background-color:#e600a0;float:left;">																								                                       立减优惠</span></div>
+                                <div class="div1">
+                                    <img class="zoom" src="img/zoon.png">
+                                    <img src="img/lanzi.png">
+                                </div>
+                                <h1 style="font-size:14px;color:black;line-height:28px;">屈臣氏</h1>
+                                <p style="font-size:12px;line-height:20px;color:#333; text-indent:0px;">屈臣氏花语压边化妆棉100片X2盒</p>
+                              <div class="div2">
+                                	<span style="float:left;font-size:14px;color:#808080;font-weight:normal;font-family:'微软雅黑';text-decoration:line-through;margin-right:15px;">￥22.90 </span>
+                                    <span style="float:left;color:#e600a0;text-decoration:none;font-family:'微软雅黑';font-size:14px;">￥15.90</span>
+                                </div>
+                            </dd>
+                        </dl>
+                         <dl class="productbox" >
+                            <dt class="product"><img src="img_product/100251718_1_jpg.jpg"></dt>
+                            <dd class="introduction">
+                                <div>
+                                    <img class="zoom" src="img/zoon.png">
+                                    <img src="img/lanzi.png">
+                                </div>
+                                <h1 style="font-size:14px;color:black;line-height:28px;">施华蔻</h1>
+                                <p style="font-size:12px;line-height:20px;color:#333; text-indent:0px;">施华蔻多效维护19润发乳600毫升(新旧包装随机)</p>
+                                <span style="display:block;font-size:14px;color:#808080;font-weight:normal;font-family:'微软雅黑';">￥92.00</span>
+                            </dd>
+                        </dl>
+                        <dl class="productbox" style="position:relative;">
+                            <dt class="product"><img src="img_product/100481604_1.jpg"></dt>
+                            <dd class="introduction">
+                            	<img  style="position:absolute;right:0px;top:-18px;"src="img/smalllogo.png">
+                                <div>
+                                    <img class="zoom" src="img/zoon.png">
+                                    <img src="img/lanzi.png">
+                                </div>
+                                <h1 style="font-size:14px;color:black;line-height:28px;">屈臣氏</h1>
+                                <p style="font-size:12px;line-height:20px;color:#333; text-indent:0px;">屈臣氏库拉索芦荟补水天丝面膜10片装</p>
+                                <span style="display:block;font-size:14px;color:#808080;font-weight:normal;font-family:'微软雅黑';">￥75.00</span>
+                            </dd>
+                        </dl>
+                        
+                	</div>
+                </div>
+            </div>
+
+     </div>   
+    
+   <div class="bigbox_right">
+            
+        <h2 style="font-size:22px;font-family:'Arial';font-weight:bolder;color:#00a0a0;line-height:28px;">Top 5</h2>
+        <h3 style="font-size:20px;font-family:'微软雅黑';font-weight:bold;color:black;line-height:28px;">本期推荐</h3>
+        <h4  style="font-size:16px;font-family:'微软雅黑';font-weight:bold;color:black;line-height:18px;margin-top:4px;width:115px;">我们首选给您的畅销产品</h4>
+        
+           <div class="column" style="overflow:hidden;">
+            	  	<div style="float:left;width:18px;height:18px;border-radius:50%;text-align:center;color:white;background-color:#00a0a0;font-size:14;font-weight:bold;margin-top:22px;">
+                    1
+                    </div>
+                	<dl class="textbox" style="overflow:hidden;">
+                      
+                        <dd style="width:136px;float:right;margin:22px 0px;">
+                                                    <h1 style="font-size:14px;color:black;line-height:14px;">屈臣氏骨胶原</h1>
+                                                    <p style="font-size:12px;line-height:20px;color:#333; text-indent:0px;">【买一送一】屈臣氏骨胶原透亮去角质啫喱100克</p>
+                                                    <span style="display:block;font-size:14px;color:#808080;font-weight:normal;font-family:'微软雅黑';">￥59.90 </span>
+                    </dd>
+                	</dl>
+                
+                
+                    <dl class="productbox" style="position:relative;display:none;" >
+                                                <img  style="position:absolute;right:0px;top:-18px;" src="img/smalllogo.png">
+                                                <dt class="product"><img src="img_product/I004402_1.jpg"></dt>
+                                                <dd class="introduction">
+                                                    <div>
+                                                        <img class="zoom" src="img/zoon.png">
+                                                        <img src="img/lanzi.png">
+                                                    </div>
+                                                    <h1 style="font-size:14px;color:black;line-height:28px;">屈臣氏骨胶原</h1>
+                                                    <p style="font-size:12px;line-height:20px;color:#333; text-indent:0px;">【买一送一】屈臣氏骨胶原透亮去角质啫喱100克</p>
+                                                    <span style="display:block;font-size:14px;color:#808080;font-weight:normal;font-family:'微软雅黑';">￥59.90 </span>
+                                                </dd>
+                    </dl>
+            </div>
+            
+     
+           <div class="column" style="overflow:hidden;">
+            	  	<div style=" margin-top:22px;float:left;width:18px;height:18px;border-radius:50%;text-align:center;color:white;background-color:#00a0a0;font-size:14;font-weight:bold;">
+                    2
+                    </div>
+                	<dl class="textbox" style="overflow:hidden;">
+                      
+                        <dd style="width:136px;float:right;margin:22px 0px;">
+                                 <h1 style="font-size:14px;color:black;line-height:14px;">屈臣氏</h1>
+                                <p style="font-size:12px;line-height:20px;color:#333; text-indent:0px;">屈臣氏库拉索芦荟补水天丝面膜10片装</p>
+                                <span style="display:block;font-size:14px;color:#808080;font-weight:normal;font-family:'微软雅黑';">￥75.00</span>
+                    </dd>
+                	</dl>
+                
+                
+                    <dl class="productbox" style="position:relative;display:none;" >
+                           <dt class="product"><img src="img_product/100481604_1.jpg"></dt>
+                            <dd class="introduction">
+                            	<img  style="position:absolute;right:0px;top:-18px;"src="img/smalllogo.png">
+                                <div>
+                                    <img class="zoom" src="img/zoon.png">
+                                    <img src="img/lanzi.png">
+                                </div>
+                                <h1 style="font-size:14px;color:black;line-height:28px;">屈臣氏</h1>
+                                <p style="font-size:12px;line-height:20px;color:#333; text-indent:0px;">屈臣氏库拉索芦荟补水天丝面膜10片装</p>
+                                <span style="display:block;font-size:14px;color:#808080;font-weight:normal;font-family:'微软雅黑';">￥75.00</span>
+                            </dd>
+                    </dl>
+            </div>
+            
+           <div class="column" style="overflow:hidden;">
+            	  	<div style="margin-top:22px;float:left;width:18px;height:18px;border-radius:50%;text-align:center;color:white;background-color:#00a0a0;font-size:14;font-weight:bold;">
+                   3
+                    </div>
+                	<dl class="textbox" style="overflow:hidden;">
+                      
+                        <dd style="width:136px;float:right;margin:22px 0px;">
+                               <h1 style="font-size:14px;color:black;line-height:14px;">屈臣氏</h1>
+                               <p style="font-size:12px;line-height:20px;color:#333; text-indent:0px;">屈臣氏花语压边化妆棉100片X2盒</p>
+                              <div class="div2">
+                                	<span style="float:left;font-size:14px;color:#808080;font-weight:normal;font-family:'微软雅黑';text-decoration:line-through;margin-right:15px;">￥22.90 </span>
+                                    <span style="float:left;color:#e600a0;text-decoration:none;font-family:'微软雅黑';font-size:14px;">￥15.90</span>
+                              </div>
+                    </dd>
+                	</dl>
+                
+                
+                <dl class="productbox" style="position:relative;display:none;" >
+                  <dt class="product"><img src="img_product/100435609_1.jpg"></dt>
+                            <dd class="introduction">
+                            	<img  style="position:absolute;right:0px;top:-18px;"src="img/smalllogo.png">
+                            	<div style="color:white;font-size:12px;position:absolute;left:0px;bottom:-25px;overflow:hidden;"> 
+                                <span style="padding:2px 4px;background-color:#e600a0;float:left;">																								                                       立减优惠</span></div>
+                                <div class="div1">
+                                    <img class="zoom" src="img/zoon.png">
+                                    <img src="img/lanzi.png">
+                                </div>
+                                <h1 style="font-size:14px;color:black;line-height:28px;">屈臣氏</h1>
+                                <p style="font-size:12px;line-height:20px;color:#333; text-indent:0px;">屈臣氏花语压边化妆棉100片X2盒</p>
+                              <div class="div2">
+                                	<span style="float:left;font-size:14px;color:#808080;font-weight:normal;font-family:'微软雅黑';text-decoration:line-through;margin-right:15px;">￥22.90 </span>
+                                    <span style="float:left;color:#e600a0;text-decoration:none;font-family:'微软雅黑';font-size:14px;">￥15.90</span>
+                                </div>
+                            </dd>
+                   </dl>
+         </div>
+         
+         
+           <div class="column" style="overflow:hidden;">
+            	  	<div style="margin-top:22px;float:left;width:18px;height:18px;border-radius:50%;text-align:center;color:white;background-color:#00a0a0;font-size:14;font-weight:bold;">
+                   4
+                    </div>
+                	<dl class="textbox" style="overflow:hidden;">
+                      
+                        <dd style="width:136px;float:right;margin:22px 0px;">
+                               <h1 style="font-size:14px;color:black;line-height:14px;">屈臣氏</h1>
+                               <p style="font-size:12px;line-height:20px;color:#333; text-indent:0px;">屈臣氏花语压边化妆棉100片X2盒</p>
+                             <div class="div2">
+                           			<span style="float:left;font-size:14px;color:#808080;font-weight:normal;font-family:'微软雅黑';text-decoration:line-through;margin-right:15px;">￥149.00</span>
+                                    <span style="float:left;color:#e600a0;text-decoration:none;font-family:'微软雅黑';font-size:14px;">￥45.00</span>
+                                </div>
+                    </dd>
+                	</dl>
+                
+                
+                <dl class="productbox" style="position:relative;display:none;" >
+                    <dt class="product"><img src="img_product/100345616_1_jpg.jpg"></dt>
+                            <dd class="introduction">
+                            	<div style="color:white;font-size:12px;position:absolute;left:0px;bottom:-25px;overflow:hidden;"><span style="padding:2px 4px;background-color:black;                                            margin-right:10px;float:left;">独家</span><span style="padding:2px 4px;background-color:#e600a0;float:left;">																								                                       立减优惠</span></div>
+                                <div>
+                                    <img class="zoom" src="img/zoon.png">
+                                    <img src="img/lanzi.png">
+                                </div>
+                                <h1 style="font-size:14px;color:black;line-height:28px;font-family:Arial;"> SKIN Advanced</h1>
+                                <p style="font-size:12px;line-height:20px;color:#333; text-indent:0px;"><span style="font-family:Arial;"> SKIN Advanced</span>白金舒润水凝乳夜45毫升</p>
+                         		<div class="div2">
+                           			<span style="float:left;font-size:14px;color:#808080;font-weight:normal;font-family:'微软雅黑';text-decoration:line-through;margin-right:15px;">￥149.00</span>
+                                    <span style="float:left;color:#e600a0;text-decoration:none;font-family:'微软雅黑';font-size:14px;">￥45.00</span>
+                                </div>
+                            </dd>
+                        </dl>
+         </div>
+         
+    
+                <div class="column" style="overflow:hidden;">
+            	  	<div style="margin-top:22px;float:left;width:18px;height:18px;border-radius:50%;text-align:center;color:white;background-color:#00a0a0;font-size:14;font-weight:bold;">
+                  5
+                    </div>
+                	<dl class="textbox" style="overflow:hidden;">
+                      
+                     <dd style="width:136px;float:right;margin:22px 0px;">
+                               <h1 style="font-size:14px;color:black;line-height:14px;">屈臣氏</h1>
+                               <p style="font-size:12px;line-height:20px;color:#333; text-indent:0px;">屈臣氏花语压边化妆棉100片X2盒</p>
+                             <span style="display:block;font-size:14px;color:#808080;font-weight:normal;font-family:'微软雅黑';">￥65.00</span>
+                    </dd>
+                	</dl>
+                
+                
+                <dl class="productbox" style="position:relative;display:none;" >
+                        <dt class="product"><img src="img_product/I001985_1.jpg"></dt>
+                            <dd class="introduction">
+                                <div>
+                                    <img class="zoom" src="img/zoon.png">
+                                    <img src="img/lanzi.png">
+                                </div>
+                                <h1 style="font-size:14px;color:black;line-height:18px;">森田</h1>
+                                <p style="font-size:12px;line-height:20px;color:#333; text-indent:0px;">【买一送一】森田蜗牛透滑精华面膜（4）片</p>
+                                <span style="display:block;font-size:14px;color:#808080;font-weight:normal;font-family:'微软雅黑';">￥65.00</span>
+                            </dd>
+                        </dl>
+         </div>
+<script>
+       $(".column").mouseenter(function(){
+           $(".column").children(".productbox").hide();
+           $(".column").children(".textbox").show();
+           $(this).children(".productbox").show();
+           $(this).children(".textbox").hide();
+        })
+</script>           
+    </div>
+	<div class="clear" style="clear:both;"></div>
+</div>
+
+<!--friendship-->
+<div class="friendlogobg">
+<div class="title_right">品牌浏览</div>
+<img  class="title_left" src="img/hongkuang.png">
+<div class="friendlogobox">
+    <div class="picbox">
+    	<img src="img_logo/04.jpg" >
+    </div>
+    <div class="picbox">
+    	<img src="img_logo/05.jpg">
+    </div>
+     <div class="picbox">
+    	<img src="img_logo/06.jpg">
+    </div>
+     <div class="picbox">
+    	<img src="img_logo/07.jpg">
+    </div>
+     <div class="picbox">
+    	<img src="img_logo/08.jpg">
+    </div>
+    
+     
+     <div class="picbox">
+    	<img src="img_logo/11.jpg">
+    </div>
+     
+     <div class="picbox">
+    	<img src="img_logo/13.jpg">
+    </div>
+     <div class="picbox">
+    	<img src="img_logo/14.jpg" >
+    </div>
+     <div class="picbox">
+    	<img src="img_logo/15.jpg" >
+    </div>
+    
+   
+     <div class="picbox">
+    	<img src="img_logo/18.jpg">
+    </div>
+     <div class="picbox">
+    	<img src="img_logo/19.jpg">
+    </div>
+     <div class="picbox">
+    	<img src="img_logo/20.jpg">
+    </div>
+     <div class="picbox">
+    	<img src="img_logo/21.jpg">
+    </div>
+     <div class="picbox">
+    	<img src="img_logo/22.jpg">
+    </div>
+     <div class="picbox">
+    	<img src="img_logo/23.jpg">
+    </div>
+     <div class="picbox">
+    	<img src="img_logo/24.jpg">
+    </div>
+</div>
+<div class="clear"></div>
+</div>
+
+<!--conectus-->
+<div class="connectusbg">
+	<div class="connectusbox" >
+    	<div class="joinus">
+        	<img src="img/joinus.png">
+            <dl>
+                <dt style="font-size:14px;font-weight:bold;color:#666">加入屈臣氏</dt>
+                <dd><a  href=""style="font-size:12px;text-decoration:underline;color:#666">工作机会</a></dd>
+            </dl>
+        </div>
+        
+        <div class="connectus">
+        	<img src="img/conectus.png">
+            <dl>
+                <dt style="font-size:14px;font-weight:bold;color:#666">联系我们</dt>
+                <dd><a href="" style="font-size:12px;text-decoration:underline;color:#666">联系我们</a></dd>
+            </dl>
+        </div>
+        
+        <div class="qrbox">
+             <p >点击放大</p>
+        	<img class="qr" src="img/shopQR-code.jpg">
+            <div class="qrboxzoom" style="width:220px;height:220px;background-color:rgba(0,0,0,0.3);position:absolute;left:0px;top:54px;display:none;">
+            	<img class="closebutton" src="img/button.png" style="float:right;">
+            	<img class="qrbig" src="img/shopQR-code.jpg" style="float:left;margin-left:22px;margin-top:22px;">
+            </div>
+            <span style="font-size:14px;color:#666;line-height:54px;font-weight:bold;">无处不购物</span>
+        </div>
+        <script>
+			$(".qrbox .qr").click(function(){
+				$(".qrbox .qrboxzoom").show()
+				
+				})
+			$(".qrboxzoom .closebutton").click(function(){
+				$(".qrbox .qrboxzoom").hide()
+				
+				})
+		</script>
+        <div class="connectapp">
+        <a href="">	  <img src="img/kongjian.png">  </a>
+        <a href="">   <img src="img/renren.png">    </a>
+        <a href="">   <img src="img/weibo.png">    </a>
+        <a href="">   <img src="img/weixin.png">    </a>
+        <a href="">   <img src="img/wujiaoxing.png">  </a>
+        </div>
+
+	<div style="clear:both;"></div>
+	</div>
+</div>
+
+<!--footer-->
+<div class="footerbox">
+	<div class="footer">
+        <dl style="color:#666;margin-right:160px;" >
+            <dt style="font-size:14px;line-height:30px;font-weight:bold;">顾客服务 </dt>
+            <dd style="font-size:12px;line-height:28px;">协助/常见问题</dd>
+            <dd style="font-size:12px;line-height:28px;">联络我们</dd>
+            <dd style="font-size:12px;line-height:28px;">配送说明</dd>
+            <dd style="font-size:12px;line-height:28px;">发票制度</dd>
+            <dd style="font-size:12px;line-height:28px;">退换货总则</dd>
+        </dl>
+         <dl style="color:#666;margin-right:160px;">
+            <dt style="font-size:14px;line-height:30px;font-weight:bold;">关于我们 </dt>
+            <dd style="font-size:12px;line-height:28px;">最新消息</dd>
+            <dd style="font-size:12px;line-height:28px;">公司简介</dd>
+            <dd style="font-size:12px;line-height:28px;">工商执照</dd>
+            <dd style="font-size:12px;line-height:28px;">企业设计责任</dd>
+            <dd style="font-size:12px;line-height:28px;">供应商登记平台</dd>
+        </dl>
+         <dl style="color:#666;margin-right:160px;">
+            <dt style="font-size:14px;line-height:30px;font-weight:bold;">购物<span style="font-family:Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', serif;">@</span>屈臣氏</dt>
+            <dd style="font-size:12px;line-height:28px;"></dd>
+       	 </dl>
+         <dl style="color:#666">
+            <dt style="font-size:14px;line-height:30px;font-weight:bold;">新用户指南 </dt>
+            <dd style="font-size:12px;line-height:28px;">使用方法</dd>
+            <dd style="font-size:12px;line-height:28px;">购物指南</dd>
+        </dl>
+     		<div class="copyrightbox" style="clear:left;">   
+            <div class="changjiang" style="padding-top:20px;">
+                <img src="img/changjiangshiyelogo.png" style="float:left;">
+                <span style="line-height:20px;font-family:'方正姚体简体';color:#666;width:130px;float:left;margin-left:5px;">屈臣氏集团属下机构长江和纪实业</span>
+            </div>
+            <span style="font-size:12px;float:left;margin-left:50px;margin-top:10px;color:#666;"> <span style="font-family:Arial;">&copy;</span>屈臣氏集团版权属所有 | 鄂ICP备1105814号-2    隐私权政策 | 法律条款 | 网站导航</span>
+            <img src="img/logo2.png" style="float:right;">
+		</div>
+	</div>
+</div>
+</body>
+</html>
