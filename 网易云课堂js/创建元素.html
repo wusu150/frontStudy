@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function () {
+          var oBtn=document.getElementById('btn1');
+          var oUl=document.getElementById('ull');
+          var oTxt=document.getElementById('txt1');
+
+          oBtn.onclick=function ()
+          {var oLi=document.createElement('li');//凭空创建一个元素createElement
+            oLi.innerHTML=oTxt.value;
+
+            //父级.appendChild(子节点)  插入到末尾（元素插入到指定的父级上）
+            oUl.appendChild(oLi);
+
+          };
+        };
+    </script>
+</head>
+<body>
+<input id="txt1"type="text"/>
+<input id="btn1" type="button"value="创建li">
+<ul id="ull"></ul>
+</body>
+</html>
