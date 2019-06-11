@@ -32,32 +32,49 @@
         }
 
         th {
-            width: 150px;
+            width: 130px;
         }
     </style>
     <script type="text/javascript" language=JavaScript>
+      function doNothing(){
+        window.event.returnValue=false;
+        return false;
+      }
+
         window.onload = function () {
-          const key = document.getElementById('key');
-          const keyCode = document.getElementById('keyCode');
-          const code = document.getElementById('code');
+          const button = document.getElementById('button');
+          const buttons = document.getElementById('buttons');
+          const clientX = document.getElementById('clientX');
+          const clientY = document.getElementById('clientY');
           const ctrlKey = document.getElementById('ctrlKey');
           const metaKey = document.getElementById('metaKey');
           const shiftKey = document.getElementById('shiftKey');
           const altKey = document.getElementById('altKey');
+          const which = document.getElementById('which');
           const combineKey = document.getElementById('combineKey');
 
 
-          document.onkeydown = function(event) {
+          document.onmousedown = function(event) {
             var e = event || window.event || arguments.callee.caller.arguments[0];
             e.preventDefault();  //阻止默认事件
             // 设置获取的值
-            key.innerHTML = e.key;
-            keyCode.innerHTML = e.keyCode;
-            code.innerHTML = e.code;
+            button.innerHTML = e.button;
+            buttons.innerHTML = e.buttons;
+            clientX.innerHTML = e.clientX;
+            clientY.innerHTML = e.clientY;
             ctrlKey.innerHTML = e.ctrlKey;
             metaKey.innerHTML = e.metaKey;
             shiftKey.innerHTML = e.shiftKey;
             altKey.innerHTML = e.altKey;
+            which.innerHTML = e.which;
+
+            function getButton(value) {
+              let buttonname = '';
+              if (value === 0) buttonname = '鼠标左键';
+              if (value === 1) buttonname = '鼠标中间键';
+              if (value === 2) buttonname = '鼠标右键';
+              return buttonname;
+            }
 
             if (e.altKey || e.shiftKey || e.metaKey || e.ctrlKey) {
               let result = '';
@@ -70,35 +87,39 @@
               } else if (e.ctrlKey) {
                 result = 'Control';
               }
-              combineKey.innerHTML = result !== e.key ? `${result} + ${e.key}` : `${result}`;
+              combineKey.innerHTML = `${result} + ${getButton(e.button)}`;
             }  else {
-              combineKey.innerHTML = '-';
+              combineKey.innerHTML = getButton(e.button);
             }
           };
         }
     </script>
 </head>
-<body>
+<body oncontextmenu="doNothing()">
 <div id="container">
     <table border="0px">
         <tr>
-            <th>key</th>
-            <th>keyCode</th>
-            <th>code</th>
+            <th>button</th>
+            <th>buttons</th>
+            <th>clientX</th>
+            <th>clientY</th>
             <th>ctrlKey</th>
             <th>metaKey</th>
             <th>shiftKey</th>
             <th>altKey</th>
+            <th>which</th>
             <th>组合健</th>
         </tr>
         <tr>
-            <td id="key">-</td>
-            <td id="keyCode">-</td>
-            <td id="code">-</td>
+            <td id="button">-</td>
+            <td id="buttons">-</td>
+            <td id="clientX">-</td>
+            <td id="clientY">-</td>
             <td id="ctrlKey">-</td>
             <td id="metaKey">-</td>
             <td id="shiftKey">-</td>
             <td id="altKey">-</td>
+            <td id="which">-</td>
             <td id="combineKey">-</td>
         </tr>
     </table>
