@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="commonHeight">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1, user-scalable=no" />
+    <title>css3雪碧图任意缩放</title>
+    <style>
+        .boxA {
+            width: 100%;  /*宽高尺寸任意增减*/
+            height: 200px;
+            background:url("airplane.png") no-repeat;
+            background-size: 100% 1600%;  /*这项是关键，用来撑开拼凑起来的序列帧，一行4帧图就是400%*/
+            -webkit-animation: play 1s steps(15) infinite;  /*发生了3次位移steps就是3*/
+                    animation: play 1s steps(15) infinite;
+        }
+
+        @keyframes play {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 0% 100%;  /*整张图是100%，9次位移每一次是11%，第9次就是99%*/
+            }
+        }
+        @-webkit-keyframes play {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 0% 100%;
+            }
+        }
+
+        .bodyContainer {
+            width: 150px;  /*宽高尺寸任意增减*/
+            height: 200px;
+            left: 100px;
+            position: absolute;
+            -webkit-animation: moveTo 10.0s steps(1300) infinite;  /*发生了1200次位移steps就是50s*/
+                    animation: moveTo 10.0s steps(1300) infinite;
+        }
+
+        @keyframes moveTo {
+            0% {
+                left: 100px;
+            }
+            100% {
+                left: 1300px;
+            }
+        }
+        @-webkit-keyframes moveTo {
+            0% {
+                left: 100px;
+            }
+            100% {
+                left: 1300px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div class="bodyContainer">
+    <div class="boxA"></div>
+</div>
+
+</body>
+</html>

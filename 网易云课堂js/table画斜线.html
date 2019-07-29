@@ -1,0 +1,131 @@
+<HTML>
+
+<HEAD>
+    <TITLE>
+        斜线表头
+    </TITLE>
+</HEAD>
+<script Language="javascript">
+  function a(x, y, color) {
+    document.write("<img   border='0'   style='position:   absolute;   left:   " + (x) + ";   top:   " + (y) + ";background-color:   " + color + "'   src='px.gif'   width=1   height=1>")
+  }
+</script>
+
+<body leftmargin=0 topmargin=0>
+<br>
+<TABLE border=0 bgcolor="000000" cellspacing="1" width=400>
+    <TR bgcolor="FFFFFF">
+        <TD width="111" height="52">
+            <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td id="td1">
+                    </td>
+                    <td>
+                        成绩
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        姓名
+                    </td>
+                    <td id="td2">
+                    </td>
+                </tr>
+            </table>
+        </TD>
+        <TD width="81">
+            数学
+        </TD>
+        <TD width="96">
+            英语
+        </TD>
+        <TD width="99">
+            C语言
+        </TD>
+    </TR>
+    <TR bgcolor="FFFFFF">
+        <TD>
+            张三
+        </TD>
+        <TD>
+            55
+        </TD>
+        <TD>
+            66
+        </TD>
+        <TD>
+            77
+        </TD>
+    </TR>
+    <TR bgcolor="FFFFFF">
+        <TD>
+            李四
+        </TD>
+        <TD>
+            99
+        </TD>
+        <TD>
+            68
+        </TD>
+        <TD>
+            71
+        </TD>
+    </TR>
+    <TR bgcolor="FFFFFF">
+        <TD>
+            王五
+        </TD>
+        <TD>
+            33
+        </TD>
+        <TD>
+            44
+        </TD>
+        <TD>
+            55
+        </TD>
+    </TR>
+</TABLE>
+<script>
+  function getTop(tdobj) {
+    vParent = tdobj.offsetParent;
+    t = tdobj.offsetTop;
+    while (vParent.tagName.toUpperCase() != "BODY") {
+      t += vParent.offsetTop;
+      vParent = vParent.offsetParent;
+    }
+    return t;
+  }
+
+  function getLeft(tdobj) {
+    vParent = tdobj.offsetParent;
+    t = tdobj.offsetLeft;
+    while (vParent.tagName.toUpperCase() != "BODY") {
+      t += vParent.offsetLeft;
+      vParent = vParent.offsetParent;
+    }
+    return t;
+  }
+  function line(x1, y1, x2, y2, color) {
+    var tmp
+    if (x1 >= x2) {
+      tmp = x1;
+      x1 = x2;
+      x2 = tmp;
+      tmp = y1;
+      y1 = y2;
+      y2 = tmp;
+    }
+    for (var i = x1; i <= x2; i++) {
+      x = i;
+      y = (y2 - y1) / (x2 - x1) * (x - x1) + y1;
+      a(x, y, color);
+    }
+  }
+  //line(1,1,100,100,"000000");
+  line(getLeft(td1), getTop(td1), getLeft(td1) + td1.offsetWidth, getTop(td1) + td1.offsetHeight, '#000000');
+  line(getLeft(td2), getTop(td2), getLeft(td2) + td2.offsetWidth, getTop(td2) + td2.offsetHeight, '#000000');
+</script>
+</BODY>
+
+</HTML>
