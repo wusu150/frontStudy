@@ -123,7 +123,7 @@ function canvasApp() {
     ctx.save();
   }
   const dataSource = [];
-  for (let i = 0; i < 100; i ++) {
+  for (let i = 0; i < 1; i ++) {
     const Point = {
       startX: Math.random() * 10,
       startY: Math.random() * 700,
