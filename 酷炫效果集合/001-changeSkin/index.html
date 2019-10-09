@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一键换肤功能</title>
+    <link rel="stylesheet" href="./styles/foresttree.css" type="text/css" id="styles">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .container td:nth-child(1) {
+            text-align: right;
+        }
+        .container td:nth-child(2) {
+            text-align: left;
+        }
+    </style>
+</head>
+<script>
+    window.onload = function () {
+        var styles = document.getElementById('styles');
+        var treeBranch = document.getElementById('treeBranch');
+        var snowPartner = document.getElementById('snowPartner');
+        var flowerBranch = document.getElementById('flowerBranch');
+        treeBranch.onclick = function () {
+            styles.href = './styles/foresttree.css';
+            this.style.color = '#midnightblue';
+        };
+        snowPartner.onclick = function () {
+            styles.href = './styles/snow_partner.css';
+            this.style.color = '#8B4D61';
+        };
+        flowerBranch.onclick = function () {
+            styles.href = './styles/flower_branch.css';
+            this.style.color = '#4A8B0B';
+        }
+    }
+</script>
+<body>
+    <div>
+        <span id="treeBranch" class="span-button">treeBranch</span>
+        <span id="snowPartner" class="span-button">snowPartner</span>
+        <span id="flowerBranch" class="span-button">flowerBranch</span>
+    </div>
+    <div class="container">
+        <form>
+            <table>
+                <tr>
+                    <td><label for="username"> 请输入用户名:</label></td>
+                    <td><input type="text" id="username" name="username" /></td>
+                </tr>
+                <tr>
+                    <td><label for="pass">请输入密&nbsp;&nbsp;&nbsp;&nbsp;码:</label></td>
+                    <td><input type="text" id="pass" name="pass" /></td>
+                </tr>
+                <tr>
+                    <td><label for="repass">请输入确认密码:</label></td>
+                    <td><input type="text" id="repass"  name="repass" /></td>
+                </tr>
+                <tr>
+                    <td><label for="male">请选择性别:</label></td>
+                    <td>
+                        <input type="radio" id="male"  name="sex" />男
+                        <input type="radio" name="sex" />女
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="book"> 请选择爱好:</label></td>
+                    <td><input type="checkbox" id="book"  name="like"/>读书
+                        <input type="checkbox" name="like"/>看电影
+                        <input type="checkbox" name="like"/>写博客
+                        <input type="checkbox" name="like"/>看资料
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="phone">请输入联系方式:</label></td>
+                    <td><input type="number" id="phone"  name="pass"/></td>
+                </tr>
+                <tr>
+                    <td>请输入自我评价:</td>
+                    <td><textarea rows="5" cols="21" name="writeSelf" placeholder="请输入..." id="writeSelf"></textarea></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
