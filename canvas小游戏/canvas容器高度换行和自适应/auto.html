@@ -1,0 +1,74 @@
+<!--
+ * @Description: 
+ * @Author: jkwu
+ * @Email: suwu150@163.com
+ * @Date: 2020-07-20 21:42:17
+ * @LastEditors: jkwu
+ * @LastEditorsEmail: suwu150@163.com
+ * @LastEditTime: 2020-07-20 22:17:45
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style type="text/css">
+    #mycanvas {
+      background: #eee;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="mycanvas" width="200" height="300">不支持！</canvas>
+</body>
+<script type="text/javascript">
+  window.onload = function () {
+    var mycanvas = document.getElementById("mycanvas");
+    var context = mycanvas.getContext("2d");
+
+    // var t = 'hellodadadadadadadasdalajfoieivkaljlsdjadlkad';
+    var t = '婕拉山东矿机阿斯利利利大时代尽快哈市的金卡和达康书记德哈卡加大号是侃大山';
+    drawText(context, t, 0, 30, 200);
+  }
+
+  function drawText(context, t, x, y, w) {
+
+    var chr = t.split("");
+    var temp = "";
+    var row = [];
+
+    context.font = "20px Arial";
+    context.fillStyle = "black";
+    context.textBaseline = "middle";
+
+    for (var a = 0; a < chr.length; a++) {
+
+      if (context.measureText(temp).width < w && context.measureText(temp + (chr[a])).width <= w) {
+        temp += chr[a];
+      } //context.measureText(text).width  测量文本text的宽度
+      else {
+        row.push(temp);
+        temp = chr[a];
+      }
+    }
+    row.push(temp);
+
+    for (var b = 0; b < row.length; b++) {
+      context.fillText(row[b], x, y + (b + 1) * 24); //字体20，间隔24。类似行高
+    }
+
+    // 只显示2行，加...
+    /*for(var b = 0; b < 2; b++){
+        var str = row[b];
+        if(b == 1){
+            str = str.substring(0,str.length-1) + '...';
+        }
+        context.fillText(str,x,y+(b+1)*24);
+    }*/
+  }
+</script>
+
+</html>

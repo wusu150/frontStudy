@@ -1,9 +1,28 @@
 {
-  "name": "frontStudy",
-  "version": "1.0.0",
-  "dependencies": {
-    "express": "^4.17.1",
-    "http": "0.0.0",
-    "ws": "^7.1.2"
-  }
+	"name": "frontstudy",
+	"version": "1.0.0",
+	"description": "前端学习资料-课程资料和优秀代码汇总",
+	"main": "index.js",
+	"dependencies": {
+		"bagpipe": "^0.3.5",
+		"crypto": "^1.0.1",
+		"express": "^4.17.1",
+		"http": "^0.0.0",
+		"mime-types": "^2.1.27",
+		"ws": "^7.1.2"
+	},
+	"devDependencies": {},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/suwu150/frontStudy.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/suwu150/frontStudy/issues"
+	},
+	"homepage": "https://github.com/suwu150/frontStudy#readme"
 }
