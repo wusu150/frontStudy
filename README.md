@@ -3,7 +3,7 @@
 
 #   目录结构
 
-### frontStudy
+### frontStudy[前端]
 #### antv
 #### canvas小游戏
 #### 登陆注册

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<select id="selectCom">
+
+</select>
+<script>
+  var selectCom = document.getElementById('selectCom');
+  // selectCom.options.add(new Option('name1', 'value1'));
+  // selectCom.options.add(new Option('name2', 'value2'));
+  // selectCom.options.add(new Option('name3', 'value3'));
+  // selectCom.options.add(new Option('name4', 'value4'));
+  //
+  // console.log(selectCom.children);
+  // 1.采用遍历比较的方式
+  // Array.from(selectCom.children).map(function(item){
+  //   if (item.value === 'value3') item.setAttribute('selected', true);
+  // });
+
+
+  // 2。通过创建标签的方式
+  //   var option1 = document.createElement('option');
+  //   var option2 = document.createElement('option');
+  //     option1.appendChild(document.createTextNode("上海"));
+  //     option1.setAttribute('value', 'value1');
+  //     // option1.setAttribute('selected', true);
+  //
+  //
+  //     option2.appendChild(document.createTextNode("北京"));
+  //     option2.setAttribute('value', 'value1');
+  //     option2.setAttribute('selected', true);
+  //
+  //     selectCom.appendChild(option1);
+  //     selectCom.appendChild(option2);
+
+
+      var list = [
+        { text: '上海', value: 'sh', selected: false },
+        { text: '深圳', value: 'sz', selected: false },
+        { text: '苏州', value: 'szhou', selected: true },
+        { text: '杭州', value: 'hz', selected: false },
+      ];
+      //
+      // function createOptions(lists, selectCom) {
+      //   lists.forEach(function (item, index) {
+      //     var option = document.createElement('option');
+      //     // option.setAttribute('selected', item.selected);
+      //     // option.appendChild(document.createTextNode(item.text));
+      //     // option.setAttribute('value', item.value);
+      //     console.log(option);
+      //     selectCom.options.add(new Option(item.text,item.value));
+      //     // selectCom.appendChild(option);
+      //     if (item.selected) {
+      //       selectCom.selectedIndex = index;
+      //     }
+      //   });
+      // }
+      //
+      // createOptions(list, selectCom);
+
+
+
+
+  function createOptions(lists, selectCom) {
+    lists.forEach(function (item, index) {
+      var option = document.createElement('option');
+      option.appendChild(document.createTextNode(item.text));
+      option.setAttribute('value', item.value);
+      console.log(option);
+      if (item.selected) {
+        // option.selected = true;
+        option.setAttribute('selected', item.selected)
+      }
+      selectCom.appendChild(option);
+    });
+  }
+
+  createOptions(list, selectCom);
+</script>
+</body>
+</html>

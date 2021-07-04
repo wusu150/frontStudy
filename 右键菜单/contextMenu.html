@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul class="menu" id="menu">
+    <li><a href="###">复制</a></li>
+    <li><a href="###">粘贴</a></li>
+    <li><a href="###">剪切</a></li>
+    <li><a href="###">刷新</a></li>
+</ul>
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    .menu {
+        width: 100px;
+        border: 1px solid #ccc;
+        position: absolute;
+        box-shadow: 0 0 5px rgba(0,0,0,.2);
+        padding: 10px 0;
+        transition: all .1s ease;
+    }
+    .menu li {
+        list-style: none;
+        width: 100%;
+    }
+    .menu li a {
+        display: inline-block;
+        text-decoration: none;
+        color: #555;
+        width: 100%;
+        padding: 10px 0;
+        text-align: center;
+    }
+    .menu li:first-of-type{
+        border-radius: 5px 5px 0 0;
+    }
+    .menu li a:hover,
+    .menu li a:active {
+        background: #eee;
+        color: #0AAF88;
+    }
+</style>
+<script>
+  window.onload = function() {
+    //获取可视区宽度
+    var winWidth = function() {
+      return document.documentElement.clientWidth || document.body.clientWidth;
+    }
+    //获取可视区高度
+    var winHeight = function() {
+      return document.documentElement.clientHeight || document.body.clientHeight;
+    }
+    var menu = document.getElementById('menu');
+    menu.style.display = 'none';
+    document.addEventListener('click', function() {
+      menu.style.display = 'none';
+    })
+    menu.addEventListener('click', function(event) {
+      var event = event || window.event;
+      event.cancelBubble = true;
+    })
+    //右键菜单
+    document.oncontextmenu = function(event) {
+      var event = event || window.event;
+      menu.style.display = 'block';
+      var l, t;
+      l = event.clientX;
+      t = event.clientY;
+      if( l >= (winWidth() - menu.offsetWidth) ) {
+        l  = winWidth() - menu.offsetWidth;
+      } else {
+        l = l
+      }
+      if(t > winHeight() - menu.offsetHeight  ) {
+        t = winHeight() - menu.offsetHeight;
+      } else {
+        t = t;
+      }
+      menu.style.left = l + 'px';
+      menu.style.top = t + 'px';
+      return false;
+    }
+  }
+</script>
+</body>
+
+</html>

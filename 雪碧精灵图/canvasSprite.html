@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas转图片并下载</title>
+
+</head>
+<body>
+<canvas id="canvasId" width="500" height="500" >您的浏览器不支持使用该标签</canvas>
+<button id="download">下载图片</button>
+</body>
+<script>
+  window.onload = function () {
+    // 设置canvas
+    const canvas = document.getElementById('canvasId');
+    const context = canvas.getContext('2d');
+    const spritesheet = new Image();
+    const runnerCells = [
+      { left: 0, top: 0, width: 50, height: 60 },
+      { left: 0, top: 0, width: 50, height: 60 },
+      { left: 0, top: 0, width: 50, height: 60 },
+      { left: 0, top: 0, width: 50, height: 60 },
+      { left: 0, top: 0, width: 50, height: 60 },
+      { left: 0, top: 0, width: 50, height: 60 },
+      { left: 0, top: 0, width: 50, height: 60 },
+      { left: 0, top: 0, width: 50, height: 60 },
+      { left: 0, top: 0, width: 50, height: 60 },
+    ];
+
+    runInPlace = {
+      lastAdvance: 0,
+      PAGEFLIP_INTERVAL: 100,
+
+      execute: function (sprite, context, time) {
+        if (time - this.lastAdvance > this.PAGEFLIP_INTERVAL) {
+          sprite.painter.advance();
+          this.lastAdvance = time;
+        }
+      }
+    };
+    context.fillStyle = '#999';
+    context.font = '18px Palatino';
+    context.lineWidth = '10';
+  }
+</script>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>百度百科导航</title>
+<style type="text/css">
+body{ padding:0px; margin:0px;}
+#header{ text-align:center;}
+label{ font-weight:bold;}
+#menu{ width:220px; height:360px; background-color:#9F3; display:none;}
+#menu ul li{ margin-top:20px;}
+</style>
+</head>
+
+<body>
+<div id="header"><h1>百度百科导航基本原理</h1></div>
+<div id="menu">
+<ul>
+<li>条目一</li>
+<li>条目二</li>
+<li>条目三</li>
+<li>条目四</li>
+<li>条目五</li>
+<li>条目六</li>
+<li style="display:none"></li>
+</ul>
+</div>
+
+<br /><br /> 
+
+<label>条目一</label> 
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+<label>条目二</label>
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+<label>条目三</label>
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+<label>条目四</label>
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+<label>条目五</label>
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+<label>条目六</label>
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<label>&nbsp;</label>
+
+<script type="text/javascript">
+var menu=document.getElementById("menu");
+var mts=document.getElementsByTagName("label");
+var lis=menu.getElementsByTagName("li");
+for(var i=0;i<mts.length;i++){
+	mts.item(i).onclick=function(){alert(this.offsetTop);}
+	}
+
+window.onscroll = function(){
+	var ht=document.documentElement.scrollTop || document.body.scrollTop; 
+	for(var i=0;i<mts.length;i++){
+	if(mts.item(i).offsetTop<ht+100 && mts.item(i+1).offsetTop>ht+100){
+		lis.item(i).style.color="#f00";
+		lis.item(i).style.fontWeight="bold";
+		}else{
+		lis.item(i).style.color="#000";
+		lis.item(i).style.fontWeight="normal";
+		}
+	}
+	if(ht>100){
+		menu.style.position="fixed";
+		menu.style.top="100px";
+		menu.style.right="50px";
+		menu.style.display="block";
+		}
+	else{
+		menu.style.position="relative";
+		menu.style.display="none";
+		}
+	}
+</script>
+</body>
+</html>

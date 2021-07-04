@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+  var a = 333;
+  var obj = {
+    a: 555,
+    test: () => {
+      console.log(this);
+      console.log(this.a); // 指向调用他的上下文
+    },
+    test2: function () {
+      console.log(this);
+      console.log(this.a); // 指向调用他的对象
+    }
+  };
+
+  obj.test();
+  obj.test2();
+
+</script>
+<body>
+
+</body>
+</html>

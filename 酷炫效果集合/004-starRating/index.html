@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>星星评分 </title>
+    <style>
+        *{margin:0;padding:0;}
+        #pingfen{ width:135px;margin:10px auto;height:28px;}
+        #pingfen li{ width:27px;float:left;height:28px; cursor:pointer;background:url(star.gif) no-repeat 0 0; list-style:none;}
+    </style>
+    <script>
+        window.onload=function(){
+            var oPf=document.getElementById('pingfen');
+            var aLi=oPf.getElementsByTagName('li');
+            var i=0;
+
+            for(i=0;i<aLi.length;i++){
+                aLi[i].index=i;
+                aLi[i].onmouseover=function(){
+                    for(i=0;i<aLi.length;i++){
+                        if(i<=this.index)
+                        {
+                            aLi[i].style.background="url(star.gif) no-repeat 0 -29px";
+                        }
+                        else
+                        {
+                            aLi[i].style.background="url(star.gif) no-repeat 0 0";
+                        }
+                    }
+                };
+
+                aLi[i].onmousedown=function ()
+                {
+                    alert('提交成功:'+(this.index+1)+'分');
+                };
+            }
+        };
+    </script>
+</head>
+<body>
+<div id="pingfen">
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</body>
+</html>

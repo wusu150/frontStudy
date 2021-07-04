@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas转图片并下载</title>
+
+</head>
+<body>
+<canvas id="canvasId" width="500" height="500" >您的浏览器不支持使用该标签</canvas>
+<button id="download">下载图片</button>
+</body>
+<script>
+    window.onload = function () {
+      // 设置canvas
+      const canvas = document.getElementById('canvasId');
+      const context = canvas.getContext('2d');
+
+      context.fillStyle = '#999';
+      context.font = '18px Palatino';
+      context.lineWidth = '10';
+      context.fillText('我是用来下载的Canvas图片', canvas.width / 2, canvas.height / 2);
+      const img = new Image();
+      img.src = './bird1.png';
+      img.onload = function () {
+        context.drawImage(img, canvas.width / 2, canvas.height / 2, canvas.width / 2, canvas.height / 2);
+      }
+
+
+      // 设置下载并转换
+      const download = document.getElementById('download');
+      download.onclick = function () {
+        var bloburl = canvas.toDataURL();
+        console.log('bloburl', bloburl);
+        var anchor = document.createElement('a');
+        if ('download' in anchor) {
+          anchor.style.visibility = 'hidden';
+          anchor.href = bloburl;
+          anchor.download = name;
+
+          document.body.appendChild(anchor);
+          var evt = document.createEvent('MouseEvents');
+          evt.initEvent('click', true, true);
+          anchor.dispatchEvent(evt);
+
+          document.body.removeChild(anchor);
+        } else {
+          location.href = bloburl;
+        }
+      }
+    }
+</script>
+</html>

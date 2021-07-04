@@ -1,0 +1,125 @@
+{
+  "type": "Feature",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          30.55459965000017,
+          -2.400627542999871
+        ],
+        [
+          30.41579675300011,
+          -2.851659443999836
+        ],
+        [
+          30.82548750800015,
+          -2.9785767609999
+        ],
+        [
+          30.799752645000183,
+          -3.274579365999841
+        ],
+        [
+          30.46892012600017,
+          -3.513014424999909
+        ],
+        [
+          30.00300541100006,
+          -4.271934508999834
+        ],
+        [
+          29.654353124914053,
+          -4.450591078822441
+        ],
+        [
+          29.206678641706503,
+          -3.334424246383435
+        ],
+        [
+          29.015365438000117,
+          -2.720711364999943
+        ],
+        [
+          29.697546021000107,
+          -2.808251240999923
+        ],
+        [
+          29.931691935000117,
+          -2.316911722999919
+        ],
+        [
+          30.55459965000017,
+          -2.400627542999871
+        ]
+      ]
+    ]
+  },
+  "properties": {
+    "scalerank": 0,
+    "featurecla": "Admin-0 country",
+    "LABELRANK": 6,
+    "SOVEREIGNT": "Burundi",
+    "SOV_A3": "BDI",
+    "ADM0_DIF": 0,
+    "LEVEL": 2,
+    "TYPE": "Sovereign country",
+    "ADMIN": "Burundi",
+    "ADM0_A3": "BDI",
+    "GEOU_DIF": 0,
+    "GEOUNIT": "Burundi",
+    "GU_A3": "BDI",
+    "SU_DIF": 0,
+    "SUBUNIT": "Burundi",
+    "SU_A3": "BDI",
+    "BRK_DIFF": 0,
+    "NAME": "Burundi",
+    "NAME_LONG": "Burundi",
+    "BRK_A3": "BDI",
+    "BRK_NAME": "Burundi",
+    "BRK_GROUP": null,
+    "ABBREV": "Bur.",
+    "POSTAL": "BI",
+    "FORMAL_EN": "Republic of Burundi",
+    "FORMAL_FR": null,
+    "NOTE_ADM0": null,
+    "NOTE_BRK": null,
+    "NAME_SORT": "Burundi",
+    "NAME_ALT": null,
+    "MAPCOLOR7": 2,
+    "MAPCOLOR8": 2,
+    "MAPCOLOR9": 5,
+    "MAPCOLOR13": 8,
+    "POP_EST": 8988091,
+    "GDP_MD_EST": 3102,
+    "POP_YEAR": -99,
+    "LASTCENSUS": 2008,
+    "GDP_YEAR": -99,
+    "ECONOMY": "7. Least developed region",
+    "INCOME_GRP": "5. Low income",
+    "WIKIPEDIA": -99,
+    "FIPS_10_": "BY",
+    "ISO_A2": "BI",
+    "ISO_A3": "BDI",
+    "ISO_N3": "108",
+    "UN_A3": "108",
+    "WB_A2": "BI",
+    "WB_A3": "BDI",
+    "WOE_ID": 23424774,
+    "WOE_ID_EH": 23424774,
+    "WOE_NOTE": "Exact WOE match as country",
+    "ADM0_A3_IS": "BDI",
+    "ADM0_A3_US": "BDI",
+    "ADM0_A3_UN": -99,
+    "ADM0_A3_WB": -99,
+    "CONTINENT": "Africa",
+    "REGION_UN": "Africa",
+    "SUBREGION": "Eastern Africa",
+    "REGION_WB": "Sub-Saharan Africa",
+    "NAME_LEN": 7,
+    "LONG_LEN": 7,
+    "ABBREV_LEN": 4,
+    "TINY": -99,
+    "HOMEPART": 1
+  }
+}

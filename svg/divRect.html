@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .express-canvas {
+        position: relative;
+    }
+    .container {
+        border: 1px rgb(187, 187, 187) solid;
+        width: 150px;
+        max-width: 150px;
+        padding: 5px;
+        border-radius: 5px;
+        background: #f9f9f9;
+        display: inline-block;
+    }
+    .container:hover .relational-symbol {
+        visibility: visible;
+    }
+    .relational-symbol {
+        visibility: hidden;
+        font-size: 10px;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        left: 150px;
+        top: 5px;
+        background: transparent;
+        border: 1px dotted #f9f9f9;
+        border-radius: 5px;
+    }
+    .dashed-border {
+        /*height: 20px;*/
+        cursor: pointer;
+        margin: 0;
+        /*padding: 5px;*/
+        border: 1px dashed transparent;
+    }
+    .dashed-border:hover {
+        border: 1px dashed #aaa;
+    }
+
+    .symbol-element {
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        border: 1px solid #e0e0e0;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+</style>
+<script src="reg.js"></script>
+<body>
+<div id="app" class="express-canvas">
+    <!--<div class="container" id="container">-->
+        <!--<span class="variable dashed-border" onclick="showModal('variable')">var</span>-->
+        <!--<span class="operator dashed-border" onclick="showModal('operator')">operator</span>-->
+        <!--<span class="value dashed-border" onclick="showModal('value')">value</span>-->
+        <!--<span class="relational-symbol">-->
+            <!--<span class="dashed-border" onclick="relationalSymbol('AND')">AND</span>-->
+            <!--<span class="dashed-border" onclick="relationalSymbol('OR')">OR</span>-->
+            <!--<span class="dashed-border" onclick="relationalSymbol('Delete')">删除</span>-->
+        <!--</span>-->
+    <!--</div>-->
+</div>
+</body>
+<script>
+    // 初始化变量
+    /*
+    * 1.当前选中的节点
+    * 2.当前关系连接符号：and/or
+    * 3.当前变量
+    * 4.当前操作符号
+    * 5.当前值或者变量结果
+    * 6.当前值得填充类型
+    * */
+    let expressionList = [];
+    let currentSelected = null;
+    let currentRelationalSymbol = null;
+    let currentVariable = null;
+    let currentOperator = null;
+    let currentValue = null;
+    let currentValueType = null;
+    let currentExpression = {};
+
+    // 设置边框的大小
+
+
+    // 获取具体的值
+
+    var tempValue = '(money>10000)&&(a>2000)||(female=3000)';
+    var expressionListResult = matchExpression(tempValue);
+    console.log(expressionListResult);
+    //
+    function relationalSymbol(type) {
+      console.log(type);
+      currentRelationalSymbol = type;
+      if (type === 'Add' || type === 'OR') {
+        currentExpression.preOpt = type;
+      } else {
+        // 删除掉该节点
+      }
+    }
+
+    function createContainerItem(expressItem, index) {
+    // <div class="container" id="container">
+    //     <span class="variable dashed-border" onclick="showModal('variable')">var</span>
+    //   <span class="operator dashed-border" onclick="showModal('operator')">operator</span>
+    //     <span class="value dashed-border" onclick="showModal('value')">value</span>
+    //     <span class="relational-symbol">
+    //     <span class="dashed-border" onclick="relationalSymbol('AND')">AND</span>
+    //     <span class="dashed-border" onclick="relationalSymbol('OR')">OR</span>
+    //     <span class="dashed-border" onclick="relationalSymbol('Delete')">删除</span>
+    //   </span>
+    //</div>
+
+      let id = expressItem.str;
+      //生成容器
+      let containerElement = document.createElement('div');
+      containerElement.setAttribute('id', id);
+      containerElement.setAttribute('class', 'container');
+
+      // 生成表达式
+      let variableElement = document.createElement('span');
+      let operatorElement = document.createElement('span');
+      let valueElement = document.createElement('span');
+
+      variableElement.setAttribute('class', "variable dashed-border");
+      operatorElement.setAttribute('class', "operator dashed-border");
+      valueElement.setAttribute('class', "value dashed-border");
+
+      variableElement.setAttribute('onclick', "showModal('variable')");
+      operatorElement.setAttribute('onclick', "showModal('operator')");
+      valueElement.setAttribute('onclick', "showModal('value')");
+
+      console.log(expressItem);
+      variableElement.appendChild(document.createTextNode(expressItem && expressItem.match[1]));
+      operatorElement.appendChild(document.createTextNode(expressItem && expressItem.match[2]));
+      valueElement.appendChild(document.createTextNode(expressItem && expressItem.match[3]));
+
+
+      // 生成操作
+      let relationalSymbolElementSelected = createRelationalSymbolCondition(id);
+      let relationalSymbolElement = createRelationalSymbolElement(expressItem && expressItem.preOpt);
+
+      // 追加节点到容器
+      // containerElement.insertBefore(relationalSymbolElement, containerElement);
+      containerElement.appendChild(variableElement);
+      containerElement.appendChild(operatorElement);
+      containerElement.appendChild(valueElement);
+      containerElement.appendChild(relationalSymbolElementSelected);
+
+      containerElement.style.position = 'absolute';
+      containerElement.style.left = (200 * index) + 100 + 'px';
+      containerElement.style.top = '0px';
+
+      return containerElement;
+
+    }
+
+    function createRelationalSymbolCondition(id) {
+      let relationalSymContainer = document.createElement('span');
+      let andElement = document.createElement('span');
+      let orElement = document.createElement('span');
+      let deleteElement = document.createElement('span');
+      relationalSymContainer.setAttribute('class', 'relational-symbol');
+      andElement.setAttribute('class', 'dashed-border');
+      orElement.setAttribute('class', 'dashed-border');
+      deleteElement.setAttribute('class', 'dashed-border');
+
+
+      andElement.setAttribute('onclick', "relationalSymbol('AND')");
+      orElement.setAttribute('onclick', "relationalSymbol('OR')");
+      deleteElement.setAttribute('onclick', "relationalSymbol('Delete')");
+      //
+      // andElement.addEventListener('click', relationalSymbol('AND'));
+      // orElement.setAttribute('click', relationalSymbol('OR'));
+      // deleteElement.setAttribute('click', relationalSymbol('Delete'));
+
+      andElement.appendChild(document.createTextNode('AND'));
+      orElement.appendChild(document.createTextNode('OR'));
+      deleteElement.appendChild(document.createTextNode('Delete'));
+
+
+
+      relationalSymContainer.appendChild(andElement);
+      relationalSymContainer.appendChild(orElement);
+      relationalSymContainer.appendChild(deleteElement);
+
+      return relationalSymContainer;
+
+    }
+
+    function createRelationalSymbolElement(symbolValue) {
+      let symbolElement = document.createElement('span');
+      symbolElement.setAttribute('class', 'symbol-element');
+      symbolElement.appendChild(document.createTextNode(symbolValue));
+      return symbolElement;
+    }
+
+    function showModal(type) {
+      // 显示弹窗，进行修改下拉框的值
+      console.log(type);
+    }
+
+    const expressionListsElement = expressionListResult.map((expressItem, index) => {
+      return createContainerItem(expressItem, index);
+    });
+
+    function appendElement(elements, id) {
+      const parentElement = document.getElementById(id);
+      elements.forEach(item => {
+        parentElement.appendChild(item)
+      });
+    }
+
+    appendElement(expressionListsElement, 'app');
+
+
+</script>
+</html>

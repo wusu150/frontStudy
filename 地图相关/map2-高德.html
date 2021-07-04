@@ -1,0 +1,288 @@
+<html>
+<head><link rel="stylesheet" type="text/css" href="https://webapi.amap.com/css/v1.4.1/style1536672475629.css"><style type="text/css">.amap-indoor-map .label-canvas{position:absolute;top:0;left:0}.amap-indoor-map .highlight-image-con *{pointer-events:none}.amap-indoormap-floorbar-control{position:absolute;margin:auto 0;bottom:165px;right:12px;width:35px;text-align:center;line-height:1.3em;overflow:hidden;padding:0 2px}.amap-indoormap-floorbar-control .panel-box{background-color:rgba(255,255,255,.9);border-radius:3px;border:1px solid #ccc}.amap-indoormap-floorbar-control .select-dock{position:absolute;top:0;left:0;width:100%;box-sizing:border-box;height:30px;border:solid #4196ff;border-width:0 2px;border-radius:2px;pointer-events:none;background:linear-gradient(to bottom,#f6f8f9 0,#e5ebee 50%,#d7dee3 51%,#f5f7f9 100%)}.amap-indoor-map .transition{transition:opacity .2s},.amap-indoormap-floorbar-control .transition{transition:top .2s,margin-top .2s}.amap-indoormap-floorbar-control .select-dock:after,.amap-indoormap-floorbar-control .select-dock:before{content:"";position:absolute;width:0;height:0;left:0;top:10px;border:solid transparent;border-width:4px;border-left-color:#4196ff}.amap-indoormap-floorbar-control .select-dock:after{right:0;left:auto;border-left-color:transparent;border-right-color:#4196ff}.amap-indoormap-floorbar-control.is-mobile{width:37px}.amap-indoormap-floorbar-control.is-mobile .floor-btn{height:35px;line-height:35px}.amap-indoormap-floorbar-control.is-mobile .select-dock{height:35px;top:36px}.amap-indoormap-floorbar-control.is-mobile .select-dock:after,.amap-indoormap-floorbar-control.is-mobile .select-dock:before{top:13px}.amap-indoormap-floorbar-control.is-mobile .floor-list-box{height:105px}.amap-indoormap-floorbar-control .floor-list-item .floor-btn{color:#555;font-family:"Times New Roman",sans-serif,"Microsoft Yahei";font-size:16px}.amap-indoormap-floorbar-control .floor-list-item.selected .floor-btn{color:#000}.amap-indoormap-floorbar-control .floor-btn{height:28px;line-height:28px;overflow:hidden;cursor:pointer;position:relative;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.amap-indoormap-floorbar-control .floor-btn:hover{background-color:rgba(221,221,221,.4)}.amap-indoormap-floorbar-control .floor-minus,.amap-indoormap-floorbar-control .floor-plus{position:relative;text-indent:-1000em}.amap-indoormap-floorbar-control .floor-minus:after,.amap-indoormap-floorbar-control .floor-plus:after{content:"";position:absolute;margin:auto;top:9px;left:0;right:0;width:0;height:0;border:solid transparent;border-width:10px 8px;border-top-color:#777}.amap-indoormap-floorbar-control .floor-minus.disabled,.amap-indoormap-floorbar-control .floor-plus.disabled{opacity:.3}.amap-indoormap-floorbar-control .floor-plus:after{border-bottom-color:#777;border-top-color:transparent;top:-3px}.amap-indoormap-floorbar-control .floor-list-box{max-height:153px;position:relative;overflow-y:hidden}.amap-indoormap-floorbar-control .floor-list{margin:0;padding:0;list-style:none}.amap-indoormap-floorbar-control .floor-list-item{position:relative}.amap-indoormap-floorbar-control .floor-btn.disabled,.amap-indoormap-floorbar-control .floor-btn.disabled *,.amap-indoormap-floorbar-control.with-indrm-loader *{-webkit-pointer-events:none!important;pointer-events:none!important}.amap-indoormap-floorbar-control .with-indrm-loader .floor-nonas{opacity:.5}.amap-indoor-map-moverf-marker{color:#555;background-color:#FFFEEF;border:1px solid #7E7E7E;padding:3px 6px;font-size:12px;white-space:nowrap;display:inline-block;position:absolute;top:1em;left:1.2em}.amap-indoormap-floorbar-control .amap-indrm-loader{-moz-animation:amap-indrm-loader 1250ms infinite linear;-webkit-animation:amap-indrm-loader 1250ms infinite linear;animation:amap-indrm-loader 1250ms infinite linear;border:2px solid #91A3D8;border-right-color:transparent;box-sizing:border-box;display:inline-block;overflow:hidden;text-indent:-9999px;width:13px;height:13px;border-radius:7px;position:absolute;margin:auto;top:0;left:0;right:0;bottom:0}@-moz-keyframes amap-indrm-loader{0%{-moz-transform:rotate(0deg);transform:rotate(0deg)}100%{-moz-transform:rotate(360deg);transform:rotate(360deg)}}@-webkit-keyframes amap-indrm-loader{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes amap-indrm-loader{0%{-moz-transform:rotate(0deg);-ms-transform:rotate(0deg);-webkit-transform:rotate(0deg);transform:rotate(0deg)}100%{-moz-transform:rotate(360deg);-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg)}}</style>
+    <script src="//g.alicdn.com/bizcharts/io-asserts/3.1.2/react16.0.0.production.min.js"></script>
+    <script src="//g.alicdn.com/bizcharts/io-asserts/3.1.2/react-dom16.0.0.production.min.js"></script>
+    <script src="//cdn.bootcss.com/babel-core/5.8.38/browser.min.js"></script>
+    <script src="//g.alicdn.com/bizcharts/io-asserts/3.1.5/BizCharts.min.js"> </script>
+    <script type="text/javascript" src="//gw.alipayobjects.com/os/antv/assets/data-set/0.8.6/data-set.min.js"></script>
+    <script type="text/javascript" src="//gw.alipayobjects.com/os/antv/assets/lib/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="//gw.alipayobjects.com/os/antv/assets/lib/lodash-4.17.4.min.js"></script>
+    <script src="//webapi.amap.com/maps?v=1.4.1&key=0d78256ea89beeb8c25d1cd047549d1f"></script><style type="text/css">.amap-container{cursor:url(https://webapi.amap.com/theme/v1.3/openhand.cur),default;}.amap-drag{cursor:url(https://webapi.amap.com/theme/v1.3/closedhand.cur),default;}</style>
+    <script src="//webapi.amap.com/ui/1.0/main.js?v=1.0.11"></script>
+
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="amap-ui-1.0.11" data-requiremodule="ui/geo/DistrictExplorer" src="https://webapi.amap.com/ui/1.0/ui/geo/DistrictExplorer.js?v=1.0.11&amp;mt=ui&amp;key=0d78256ea89beeb8c25d1cd047549d1f"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="amap-ui-1.0.11" data-requiremodule="https://webapi.amap.com/count?type=UIInit&amp;k=0d78256ea89beeb8c25d1cd047549d1f" src="https://webapi.amap.com/count?type=UIInit&amp;k=0d78256ea89beeb8c25d1cd047549d1f&amp;v=1.0.11"></script></head>
+<body>
+<div id="mountNode"><div style="position: relative;">
+    <div
+            id="china"
+            style="width: 50%; height: 400px; position: absolute; left: 0px; top: 0px; background: rgb(252, 249, 242);"
+            class="amap-container"
+    >
+        <object style="display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;" type="text/html" data="about:blank">
+
+        </object>
+        <div class="amap-maps">
+            <div class="amap-drags" style="">
+                <div class="amap-layers" style="transform: translateZ(0px);">
+                    <canvas class="amap-layer" width="622" height="800" style="position: absolute; z-index: 0; transform-origin: 311px 400px; transform: scale3d(0.5, 0.5, 1); top: -200px; left: -156px; height: 800px; width: 622px;">
+
+                    </canvas>
+                    <div class="amap-markers" style="position: absolute; z-index: 120; top: 200px; left: 155px;">
+
+                </div>
+                    <canvas class="amap-labels" draggable="false" style="position: absolute; z-index: 99; height: 75px; width: 150px; top: 0px; left: 0px;">
+
+                    </canvas></div><div class="amap-overlays" style="">
+
+            </div>
+            </div>
+        </div>
+        <div style="display: none;">
+
+    </div><div class="amap-controls"></div><a class="amap-logo" href="http://gaode.com" target="_blank"><img src="https://webapi.amap.com/theme/v1.3/logo@2x.png"></a><div class="amap-copyright" style="display: none;"></div></div><div id="province" style="width: 50%;height:400px;position: absolute;right: 0;top: 0;"><div><div><div style="position:relative;"><canvas id="canvas_1" width="400" height="400" style="width: 200px; height: 200px;"></canvas><div class="g2-tooltip" style="position: absolute; visibility: hidden; white-space: nowrap; z-index: 8; transition: visibility 0.2s cubic-bezier(0.23, 1, 0.32, 1) 0s, left 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s, top 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s; background-color: rgba(0, 0, 0, 0.65); border-radius: 4px; color: rgb(255, 255, 255); font-size: 12px; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Helvetica, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, SimSun, sans-serif; line-height: 20px; padding: 10px 10px 6px;"><div class="g2-tooltip-title"></div><ul class="g2-tooltip-list"></ul></div></div></div></div></div></div></div>
+<script type="text/babel">
+  const { Chart, Geom, Axis, Tooltip, Coord, Label, Legend, View, Guide, Shape } = window.BizCharts;
+  const { Text } = Guide;
+  $('#mountNode').html('<div style="position: relative;">' +
+    '<div id="china" style="width: 50%;height:400px;position: absolute;left: 0;top: 0;"></div>' +
+    '<div id="province" style="width: 50%;height:400px;position: absolute;right: 0;top: 0;"></div>' +
+    '</div>');
+  // 调用高德 api 绘制底图以及获取 geo 数据
+  const map = new AMap.Map('china', {
+    zoom: 4
+  });
+  const colors = [ "#3366cc", "#dc3912", "#ff9900", "#109618", "#990099", "#0099c6", "#dd4477", "#66aa00", "#b82e2e", "#316395", "#994499", "#22aa99", "#aaaa11", "#6633cc", "#e67300", "#8b0707", "#651067", "#329262", "#5574a6", "#3b3eac" ];
+  // 当前聚焦的区域
+  let currentAreaNode;
+  function processData(geoJSON) {
+    const mapData = {
+      type: 'FeatureCollection',
+      features: geoJSON
+    };
+    // 构造虚拟数据
+    const userData = [];
+    for (let i = 0; i < geoJSON.length; i++) {
+      const name = geoJSON[i].properties.name;
+      userData.push({
+        name: name,
+        value: Math.round(Math.random() * 1000),
+      });
+    }
+    const ds = new DataSet();
+    const geoDataView = ds.createView().source(mapData, {
+      type: 'GeoJSON',
+    }); // geoJSON 经纬度数据
+
+    // 用户数据
+    const dvData = ds.createView().source(userData);
+    dvData.transform({
+      type: 'geo.region',
+      field: 'name',
+      geoDataView: geoDataView,
+      as: ['longitude', 'lantitude'],
+    });
+
+    return dvData;
+  }
+  class App extends React.Component {
+    constructor() {
+      super();
+      this.state = {
+        width: 200,
+        height: 200,
+        name: '',
+        dv: ''
+
+      }
+      this.renderG2Map = this.renderG2Map.bind(this);
+    }
+    componentDidMount() {
+      const _this = this;
+      AMapUI.load(['ui/geo/DistrictExplorer', 'lib/$'], function(DistrictExplorer) {
+        // 创建一个实例
+        const districtExplorer = window.districtExplorer = new DistrictExplorer({
+          eventSupport: true, //打开事件支持
+          map: map
+        });
+
+        // feature被点击
+        districtExplorer.on('featureClick', function(e, feature) {
+          var props = feature.properties;
+          //如果存在子节点
+          if (props.childrenNum > 0) {
+            //切换聚焦区域
+            switch2AreaNode(props.adcode);
+          }
+        });
+
+        //外部区域被点击
+        districtExplorer.on('outsideClick', function(e) {
+          districtExplorer.locatePosition(e.originalEvent.lnglat, function(error, routeFeatures) {
+            if (routeFeatures && routeFeatures.length > 1) {
+              //切换到省级区域
+              switch2AreaNode(routeFeatures[1].properties.adcode);
+            } else {
+              //切换到全国
+              switch2AreaNode(100000);
+            }
+          }, {
+            evelLimit: 2
+          });
+        });
+        //绘制某个区域的边界
+        function renderAreaPolygons(areaNode) {
+          var node = _.cloneDeep(areaNode);
+          districtExplorer.clearFeaturePolygons();
+          districtExplorer.renderSubFeatures(node, function (feature, i) {
+            var fillColor = colors[i % colors.length];
+            var strokeColor = colors[colors.length - 1 - i % colors.length];
+
+            return {
+              cursor: 'default',
+              bubble: true,
+              strokeColor: strokeColor, //线颜色
+              strokeOpacity: 1, //线透明度
+              strokeWeight: 1, //线宽
+              fillColor: fillColor, //填充色
+              fillOpacity: 0.35 //填充透明度
+            };
+          });
+
+          //绘制父区域
+          districtExplorer.renderParentFeature(node, {
+            cursor: 'default',
+            bubble: true,
+            strokeColor: 'black', //线颜色
+            strokeOpacity: 1, //线透明度
+            strokeWeight: 1, //线宽
+            fillColor: null, //填充色
+            fillOpacity: 0.35 //填充透明度
+          });
+        }
+
+        //切换区域后刷新显示内容
+        function refreshAreaNode(areaNode) {
+          districtExplorer.setHoverFeature(null);
+          renderAreaPolygons(areaNode);
+        }
+
+        //切换区域
+        function switch2AreaNode(adcode, callback) {
+          if (currentAreaNode && ('' + currentAreaNode.getAdcode() === '' + adcode)) {
+            return;
+          }
+
+          loadAreaNode(adcode, function(error, areaNode) {
+            if (error) {
+              if (callback) {
+                callback(error);
+              }
+              return;
+            }
+            currentAreaNode = window.currentAreaNode = areaNode;
+            refreshAreaNode(areaNode);
+            if (callback) {
+              callback(null, areaNode);
+            }
+          });
+        }
+
+        //加载区域
+        function loadAreaNode(adcode, callback) {
+          districtExplorer.loadAreaNode(adcode, function(error, areaNode) {
+            if (error) {
+              if (callback) {
+                callback(error);
+              }
+              return;
+            }
+
+
+
+
+            _this.renderG2Map(areaNode); // 使用 G2 绘制地图
+
+            if (callback) {
+              callback(null, areaNode);
+            }
+          });
+        }
+
+        // 浙江
+        switch2AreaNode(330000);
+      });
+    }
+
+    // 开始使用 G2 绘制地图
+    renderG2Map(areaNode){
+      const adcode = areaNode.getAdcode();
+      const geoJSON = areaNode.getSubFeatures(); // 获取 geoJSON 数据
+      const name = areaNode.getName();
+
+      if (!geoJSON || currentAreaNode && ('' + currentAreaNode.getAdcode() === '' + adcode)) {
+        return;
+      }
+      const dv = processData(geoJSON);
+      // start: 计算地图的最佳宽高
+      const longitudeRange = dv.range('longitude');
+      const lantitudeRange = dv.range('lantitude');
+      const ratio = (longitudeRange[1] - longitudeRange[0]) / (lantitudeRange[1] - lantitudeRange[0]);
+      let width;
+      let height;
+      if (ratio > 1) {
+        width = $('#province').width();
+        height = width / ratio;
+      } else {
+        width = 300 * ratio;
+        height = $('#province').height();
+      }
+      // end: 计算地图的最佳宽高
+      this.setState({width,height,name,dv});
+    }
+    render() {
+      const { height, width, name, dv } = this.state;
+      return (
+        <Chart height={height} width={width} data={dv}
+               padding={0}
+        >
+          <Tooltip showTitle={false} />
+          <Geom
+            type='polygon'
+            position='longitude*lantitude'
+            select={{
+              // 设置是否允许选中以及选中样式
+              mode: 'single', // 多选还是单选
+              style: {
+                fill: '#1890ff', // 选中的样式
+              },
+            }}
+            tooltip='name'
+            style={{stroke: '#fff',lineWidth: 1}}
+            color={['value', '#BAE7FF-#1890FF-#0050B3']}
+          >
+            <Label content='name' textStyle= {{
+              fill: '#fff',
+              fontSize: 10,
+              shadowBlur: 2,
+              shadowColor: 'rgba(0, 0, 0, .45)'
+            }} />
+          </Geom>
+          <Guide >
+            <Text
+              offsetY={20}
+              content={name}
+              position={[ 'min', 'max']}
+              style={{fontSize: 14,fontWeight: 'bold'}}
+            />
+          </Guide>
+        </Chart>
+      );
+    }
+  }
+
+  ReactDOM.render((<App />), document.getElementById("province"))
+</script>
+
+
+</body>
+</html>
